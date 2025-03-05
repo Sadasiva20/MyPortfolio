@@ -5,9 +5,8 @@ import Nav from '../Components/nav';
 import Home from '../Components/home';
 import About from '../Components/about';
 import Scroll from '../Components/scroll';
-
 import Contact from '../Components/contact';
-
+import { Analytics } from "@vercel/analytics/react"
 
 
 
@@ -16,7 +15,9 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
     <html lang="en" className='dark'>
       <meta charSet="utf-8" />
        <meta name="viewport" content="width=device-width, initial-scale=1" />
+       <title>Experience</title>
       <body>
+        <Analytics/>
         <Providers>
       <div>
        <Nav/>
