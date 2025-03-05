@@ -39,7 +39,6 @@ export default function Experience() {
     <div className="flex flex-col min-h-screen bg-primary overflow-hidden">
     <head>
       <meta charSet="utf-8" />
-      <title>Experience</title>
        <meta name = "keyword"  content = "projects, github, work experience" />
        <meta name="description" content="Experience" />
     </head>

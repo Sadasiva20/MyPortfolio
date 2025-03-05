@@ -19,7 +19,6 @@ export default function About() {
         <div className="flex flex-col min-h-screen bg-primary  ">
         <head>
         <meta charSet="utf-8" />
-        <title>About</title>
         <meta name="description" content="About" /> 
         <meta name ="keyword" content = "Experience, Programming, and interests"/>
         </head>

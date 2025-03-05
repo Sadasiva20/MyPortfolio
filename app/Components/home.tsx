@@ -19,7 +19,6 @@ export default function Home() {
         <div className="flex flex-col min-h-screen bg-primary">
         <head>
         <meta charSet="utf-8" />
-        <title>Home</title>
          <meta name="description" content="Home" />
          <meta name = "keyword"   content = "Introduction, Interests and Occupation , Sadasiva Sankar " />
          <link rel="canonical" href="https://sivasan29.com/home" />
