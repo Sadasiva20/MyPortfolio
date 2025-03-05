@@ -7,7 +7,7 @@ import About from '../Components/about';
 import Experience from '../Components/experience';
 import Scroll from '../Components/scroll';
 import { Analytics } from "@vercel/analytics/react"
-
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 
 
@@ -19,6 +19,7 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Contact</title>
     <body>
+    <SpeedInsights/>
     <Analytics/>
     <Providers>
     <div>
