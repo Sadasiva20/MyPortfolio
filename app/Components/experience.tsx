@@ -78,13 +78,6 @@ export default function Experience() {
             </CardFooter>
           </Card>
         ))}
-        <div className="col-span-1 sm:col-span-2 mt-4 flex justify-start">
-        <a href="https://drive.google.com/uc?export=download&id=1lI6aejYHkD-QhnIqIaKkWw8VWiINw52b">
-        <button className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg text-lg w-full sm:w-auto">
-              Resume
-     </button>
-     </a>
-     </div>
      </div>
       
     </main>
