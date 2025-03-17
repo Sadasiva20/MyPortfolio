@@ -9,7 +9,14 @@ export default {
   ],
   theme: {
     extend: {
-      
+      fontSize: {
+        'fluid-sm': 'clamp(0.875rem, 0.8rem + 0.25vw, 1rem)',
+        'fluid-base': 'clamp(1rem, 0.925rem + 0.375vw, 1.125rem)',
+        'fluid-lg': 'clamp(1.125rem, 1rem + 0.625vw, 1.5rem)',
+        'fluid-xl': 'clamp(1.25rem, 1.125rem + 0.625vw, 2rem)',
+        'fluid-2xl': 'clamp(1.5rem, 1.25rem + 1.25vw, 3rem)',
+        'fluid-3xl': 'clamp(2rem, 1.5rem + 2.5vw, 4rem)',
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
@@ -41,7 +48,6 @@ export default {
           '"Oswald"',
           '"sans-serif"',
         ],
-
       },
     },
   },
