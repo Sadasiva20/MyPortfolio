@@ -108,7 +108,6 @@ const ContactForm = () => {
       <div className="flex flex-col min-h-screen bg-primary overflow-hidden">
         <Head>
         <meta charSet="utf-8" />
-        middlewares: [middleware],
         </Head>
       
         <h1 className="text-3xl md:text-4xl text-white font-bold text-center">Contact Me! </h1>

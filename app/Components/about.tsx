@@ -23,7 +23,6 @@ export default function About() {
         <meta charSet="utf-8" />
         <meta name="description" content="About" /> 
         <meta name ="keyword" content = "Experience, Programming, and interests"/>
-        middlewares: [middleware],
         </Head>
 
         <h3 className="text-3xl md:text-4xl text-white font-bold text-center font-custom2">About</h3>

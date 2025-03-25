@@ -44,7 +44,7 @@ export default function Experience() {
       <meta charSet="utf-8" />
        <meta name = "keyword"  content = "projects, github, work experience" />
        <meta name="description" content="Experience" />
-       middlewares: [middleware],
+      
     </Head>
      <h1 className="text-3xl md:text-4xl font-bold text-white text-center font-custom2">Experience</h1>
     <main className="flex-grow flex flex-col items-center justify-center px-4 py-8">

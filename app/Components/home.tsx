@@ -26,7 +26,6 @@ export default function Home() {
         <meta name="description" content="Home" />
         <meta name="keyword" content="Introduction, Interests and Occupation, Sadasiva Sankar" />
         <link rel="canonical" href="https://sivasan29.com/home" />
-        middlewares: [middleware],
         </Head>
     
            
@@ -42,11 +41,14 @@ export default function Home() {
         This portfolio showcases my professional journey, featuring my experience, projects, and personal interests. 
         I invite you to explore my work and discover how I can contribute to your business success.
         </p>
+        <div id ="experience" className="section">
         <a href="/experience">
         <button className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg text-lg">
             View My Projects
         </button>
         </a>
+        </div>
+
     </section>
 </main>
 <footer className="bg-primary text-white py-6 text-center">
