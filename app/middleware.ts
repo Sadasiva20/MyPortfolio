@@ -12,7 +12,7 @@ export async function middleware(req: NextRequest) {
  
  // Add security headers
  response.headers.set('Content-Security-Policy', 
- "default-src 'self'; script-src 'self'");
+ "default-src 'self'; ");
  response.headers.set('Strict-Transport-Security', 
  'max-age=63072000; includeSubDomains; preload');
  response.headers.set('X-Content-Type-Options', 'nosniff');

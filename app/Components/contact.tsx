@@ -7,8 +7,9 @@ import DOMPurify from 'dompurify';
 import github from '../Icons/github.svg';
 import linkedin from '../Icons/linkedin.svg';
 import Image from 'next/image';
-import type { Metadata } from 'next'
-import { middleware } from '../middleware'
+import type { Metadata } from 'next';
+import { middleware } from '../middleware';
+import Head from 'next/head';
 
 export const metadata: Metadata = {
   title: 'Contact Me - Siva Sankar',
@@ -105,9 +106,10 @@ const ContactForm = () => {
   return (
     
       <div className="flex flex-col min-h-screen bg-primary overflow-hidden">
-        <head>
+        <Head>
         <meta charSet="utf-8" />
-        </head>
+        middlewares: [middleware],
+        </Head>
       
         <h1 className="text-3xl md:text-4xl text-white font-bold text-center">Contact Me! </h1>
         <main className="flex-grow flex flex-col items-center justify-center px-4 py-8">

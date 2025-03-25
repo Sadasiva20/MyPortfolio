@@ -5,7 +5,8 @@ import  linkedin from '../Icons/linkedin.svg';
 import picture from '../Images/Picture3.png'
 import  Image from 'next/image';
 import type { Metadata } from 'next' 
-import { middleware } from '../middleware'
+import Head from 'next/head';
+import { middleware } from '../middleware';
 
 export const metadata: Metadata = {
   title: 'Home',
@@ -20,13 +21,13 @@ export default function Home() {
     return (
         <div className="flex flex-col min-h-screen bg-primary">
           
-        <head>
+        <Head>
         <meta charSet="utf-8" />
-         <meta name="description" content="Home" />
-         
-         <meta name = "keyword"   content = "Introduction, Interests and Occupation , Sadasiva Sankar " />
-         <link rel="canonical" href="https://sivasan29.com/home" />
-        </head>
+        <meta name="description" content="Home" />
+        <meta name="keyword" content="Introduction, Interests and Occupation, Sadasiva Sankar" />
+        <link rel="canonical" href="https://sivasan29.com/home" />
+        middlewares: [middleware],
+        </Head>
     
            
     

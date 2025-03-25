@@ -9,7 +9,8 @@ import todolist from '../Images/todolist.png';
 import NGame from'../Images/NGame.jpg';
 import Oppia from '../Images/oppia.jpg';
 import Image from 'next/image';
-import { middleware } from '../middleware'
+import { middleware } from '../middleware';
+import Head from 'next/head';
 
 import type { Metadata } from "next";
 
@@ -39,11 +40,12 @@ export default function Experience() {
 
   return (
     <div className="flex flex-col min-h-screen bg-primary overflow-hidden">
-    <head>
+    <Head>
       <meta charSet="utf-8" />
        <meta name = "keyword"  content = "projects, github, work experience" />
        <meta name="description" content="Experience" />
-    </head>
+       middlewares: [middleware],
+    </Head>
      <h1 className="text-3xl md:text-4xl font-bold text-white text-center font-custom2">Experience</h1>
     <main className="flex-grow flex flex-col items-center justify-center px-4 py-8">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
