@@ -8,12 +8,15 @@ import github from '../Icons/github.svg';
 import linkedin from '../Icons/linkedin.svg';
 import Image from 'next/image';
 import type { Metadata } from 'next'
+import { middleware } from '../middleware'
 
 export const metadata: Metadata = {
   title: 'Contact Me - Siva Sankar',
   description: 'Reach out to Siva Sankar via the contact form. Provide your first name, last name, email, and message to get in touch.',
   keywords: ['Contact', 'Siva Sankar', 'Email', 'Message', 'Portfolio'],
 }
+
+export { middleware }
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({

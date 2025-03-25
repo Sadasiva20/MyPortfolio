@@ -9,6 +9,7 @@ import todolist from '../Images/todolist.png';
 import NGame from'../Images/NGame.jpg';
 import Oppia from '../Images/oppia.jpg';
 import Image from 'next/image';
+import { middleware } from '../middleware'
 
 import type { Metadata } from "next";
 
@@ -17,6 +18,7 @@ export const metadata: Metadata = {
   description: 'A comprehensive showcase of Siva Sankar\'s projects, demonstrating both frontend and backend development solutions using various technologies such as React, Node.js, JavaScript, Python, and Java.',
   keywords: ['Projects', 'Siva Sankar', 'Frontend', 'Backend', 'React', 'Node.js', 'JavaScript', 'Python', 'Java' , 'GitHub'],
 }
+export { middleware }
 
 const cardData = [
   { id: 1, src: UpCancer, title: "Up Cancer", details: "Technologies: React, node.js , Dynamodb, JavaScript", description: "A comprehensive showcase of my projects, demonstrating both frontend and backend development solutions."

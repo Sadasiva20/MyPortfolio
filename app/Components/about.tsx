@@ -4,7 +4,7 @@
 import github from '../Icons/github.svg';
 import  linkedin from '../Icons/linkedin.svg';
 import Image from 'next/image';
-
+import { middleware } from '../middleware'
 
 import type { Metadata } from 'next'
 
@@ -13,6 +13,8 @@ export const metadata: Metadata = {
   description: 'Learn more about Siva Sankar, a recent graduate with a master’s degree in Computer Science, a Software Engineer with experience at Up Cancer, and a Coder at Outlier AI. Discover his education, work experience, and hobbies.',
   keywords: ['Siva Sankar', 'Software Engineer', 'Computer Science', 'Up Cancer', 'Outlier AI', 'Education', 'Work Experience', 'Hobbies']
 }
+
+export { middleware }
 
 export default function About() {
     return (
