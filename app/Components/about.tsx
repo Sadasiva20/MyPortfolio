@@ -4,7 +4,6 @@
 import github from '../Icons/github.svg';
 import  linkedin from '../Icons/linkedin.svg';
 import Image from 'next/image';
-import { middleware } from '../middleware';
 import type { Metadata } from 'next';
 import Head from 'next/head';
 
@@ -14,7 +13,6 @@ export const metadata: Metadata = {
   keywords: ['Siva Sankar', 'Software Engineer', 'Computer Science', 'Up Cancer', 'Outlier AI', 'Education', 'Work Experience', 'Hobbies']
 }
 
-export { middleware }
 
 export default function About() {
     return (

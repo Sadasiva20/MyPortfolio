@@ -7,7 +7,6 @@ import picture from '../Images/Picture3.png'
 import  Image from 'next/image';
 import type { Metadata } from 'next' 
 import Head from 'next/head';
-import { middleware } from '../middleware';
 import {Button} from  "@heroui/react";
 import { useRouter } from 'next/navigation'
 
@@ -18,7 +17,6 @@ export const metadata: Metadata = {
   keywords: ['Introduction', 'Interests', 'Occupation', 'Sadasiva Sankar', 'Software Engineer', 'Projects', 'Portfolio'],
 } 
 
-export { middleware }
 
 
 export default function Home() {
