@@ -9,7 +9,8 @@ import type { Metadata } from 'next'
 import Head from 'next/head';
 import { middleware } from '../middleware';
 import {Button} from  "@heroui/react";
-import { useRef } from 'react';
+import { useRouter } from 'next/navigation'
+
 
 export const metadata: Metadata = {
   title: 'Home',
@@ -21,14 +22,10 @@ export { middleware }
 
 
 export default function Home() {
- 
+        
+  const router = useRouter()
 
-  const experienceRef = useRef<HTMLDivElement | null>(null);
 
-  // Scroll to the experience section
-  const scrollToExperience = () => {
-    experienceRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  };
 
     return (
         <div className="flex flex-col min-h-screen bg-primary">
@@ -53,12 +50,9 @@ export default function Home() {
         This portfolio showcases my professional journey, featuring my experience, projects, and personal interests. 
         I invite you to explore my work and discover how I can contribute to your business success.
         </p>
-        <div ref={experienceRef} id="experience"></div>
-         <Button 
-           className=" bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg text-lg" 
-           onPress={scrollToExperience}>
-             View My Projects
-         </Button>
+        <Button className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg text-lg" type="button" onPress={() => router.push('/experience')}>
+       View My Projects
+    </Button>
     </section>
 </main>
 <footer className="bg-primary text-white py-6 text-center">
