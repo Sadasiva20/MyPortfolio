@@ -106,8 +106,17 @@ const ContactForm = () => {
     
       <div className="flex flex-col min-h-screen bg-primary overflow-hidden">
         <Head>
-        <meta charSet="utf-8" />
-        middleware
+          <title>Contact | Siva Sankar Portfolio</title>
+          <meta charSet="utf-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <meta name="description" content="Reach out to Siva Sankar via the contact form. Provide your first name, last name, email, and message to get in touch." />
+          <meta name="keywords" content="Contact, Siva Sankar, Email, Message, Portfolio" />
+          <link rel="canonical" href="https://sivasan29.com/contact" />
+          <meta property="og:title" content="Contact | Siva Sankar Portfolio" />
+          <meta property="og:description" content="Reach out to Siva Sankar via the contact form." />
+          <meta property="og:image" content="https://sivasan29.com/your-image-path.jpg" />
+          <meta property="og:url" content="https://sivasan29.com/contact" />
+          <meta name="twitter:card" content="summary_large_image" />
         </Head>
       
         <h1 className="text-3xl md:text-4xl text-white font-bold text-center">Contact Me! </h1>

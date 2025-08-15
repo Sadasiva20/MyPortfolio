@@ -29,10 +29,17 @@ export default function Home() {
         <div className="flex flex-col min-h-screen bg-primary">
           
         <Head>
-        <meta charSet="utf-8" />
-        <meta name="description" content="Home" />
-        <meta name="keyword" content="Introduction, Interests and Occupation, Sadasiva Sankar" />
-        <link rel="canonical" href="https://sivasan29.com/home" />
+          <title>Home | Siva Sankar Portfolio</title>
+          <meta charSet="utf-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <meta name="description" content="Welcome to the portfolio of Siva Sankar, Software Engineer. Explore my projects, experience, and skills in web development and data science." />
+          <meta name="keywords" content="Siva Sankar, Software Engineer, Portfolio, React, Node.js, Projects, Web Development" />
+          <link rel="canonical" href="https://sivasan29.com/home" />
+          <meta property="og:title" content="Siva Sankar Portfolio" />
+          <meta property="og:description" content="Explore my professional journey, projects, and skills." />
+          <meta property="og:image" content="https://sivasan29.com/your-image-path.jpg" />
+          <meta property="og:url" content="https://sivasan29.com/home" />
+          <meta name="twitter:card" content="summary_large_image" />
         </Head>
     
            

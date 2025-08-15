@@ -18,23 +18,36 @@ export default function About() {
     return (
         <div className="flex flex-col min-h-screen bg-primary  ">
         <Head>
-        <meta charSet="utf-8" />
-        <meta name="description" content="About" /> 
-        <meta name ="keyword" content = "Experience, Programming, and interests"/>
-        middleware
+          <title>About | Siva Sankar Portfolio</title>
+          <meta charSet="utf-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <meta name="description" content="Learn more about Siva Sankar, a recent graduate with a master’s degree in Computer Science, a Software Engineer with experience at Up Cancer, and a Coder at Outlier AI. Discover his education, work experience, and hobbies." />
+          <meta name="keywords" content="Siva Sankar, Software Engineer, Computer Science, Up Cancer, Outlier AI, Education, Work Experience, Hobbies" />
+          <link rel="canonical" href="https://sivasan29.com/about" />
+          <meta property="og:title" content="About | Siva Sankar Portfolio" />
+          <meta property="og:description" content="Learn more about Siva Sankar, a recent graduate with a master’s degree in Computer Science, a Software Engineer with experience at Up Cancer, and a Coder at Outlier AI." />
+          <meta property="og:image" content="https://sivasan29.com/your-image-path.jpg" />
+          <meta property="og:url" content="https://sivasan29.com/about" />
+          <meta name="twitter:card" content="summary_large_image" />
         </Head>
 
         <h3 className="text-3xl md:text-4xl text-white font-bold text-center font-custom2">About</h3>
 
         <main className="flex-grow flex flex-col items-center justify-center px-4 py-8">
 
+            <section className="max-w-2xl mb-8">
+                <h3 className="text-4xl font-bold text-white mb-4 font-custom2">What I’m Looking For</h3>
+                <p className="text-base text-white mb-6 font-custom2">
+                  I am actively seeking opportunities as a Software Engineer, Full Stack Developer, or in specialized Frontend or Backend roles. My core technologies include Java, Python, React, Node.js, and JavaScript, but I am open to a variety of positions where I can contribute and grow. I am especially interested in innovative teams and projects that value collaboration, learning, and impactful problem-solving. If you have a role that matches my skills and interests, I would love to connect and explore how I can add value to your organization.
+                </p>
+            </section>
+
 
             <section className="max-w-2xl mb-8">
 
                 <h3 className="text-4xl font-bold text-white mb-4 font-custom2">Education</h3>
                 <p className="text-base text-white mb-6 font-custom2">
-                I&apos;m a recent graduate from the University of Illinois Springfield, where I earned my master&rsquo;s degree in Computer Science in December 2023. Before that, I completed my studies at the University of North Carolina Wilmington, graduating with a bachelor&rsquo;s degree in Information Technology in December 2020. Throughout my academic journey, I built a solid foundation in computer science principles, algorithms, software engineering, and web development. I had the opportunity to work on a variety of compelling projects, igniting my passion for creating innovative solutions.
-
+                I am currently pursuing my MBA in Business Intelligence and Data Analytics at Fayetteville State University. I graduated from the University of Illinois Springfield with a master’s degree in Computer Science in December 2023. Prior to that, I earned my bachelor’s degree in Information Technology from the University of North Carolina Wilmington in December 2020. Throughout my academic journey, I have built a strong foundation in computer science principles, algorithms, software engineering, and web development. I have also had the opportunity to work on a variety of impactful projects, which further ignited my passion for creating innovative solutions.
                 </p>
             </section>
 

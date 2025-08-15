@@ -5,9 +5,9 @@ import github from '../Icons/github.svg';
 import UpCancer from '../Images/UpCancer.jpg';
 import linkedin from '../Icons/linkedin.svg';
 import Jpass from '../Images/Jpass.jpg';
-import todolist from '../Images/todolist.png';
 import NGame from'../Images/NGame.jpg';
 import Oppia from '../Images/oppia.jpg';
+import SAS from '../Images/sas.png'; 
 import Image from 'next/image';
 import Head from 'next/head';
 
@@ -25,7 +25,7 @@ const cardData = [
    , link: "https://github.com/Sadasiva20/Up-Cancer-Workspace", linktitle: "Github link" },
   { id: 2, src: Oppia, title: "Oppia", details: "Technologies: Python, CSS, HTML, JavaScript", description: "A showcase of my projects, highlighting front-end and back-end development along with relevant documentation."
   ,link: "https://github.com/Sadasiva20/oppia/tree/develop", linktitle: "Github link" },
-  { id: 3, src: todolist, title: "TaskNest", details: "Technologies: React, node.js, JavaScript, Remix ", description: "To do List app that allows users to add and delete tasks.", link: "https://github.com/Sadasiva20/Todolist", linktitle: "Github link" },
+  { id: 3,src: SAS , title: "SAS Titanic Supervised Learning", details: "Technologies: SAS, .sas7bdat, PDF, HTML", description: "A supervised learning project using the Titanic dataset in SAS. Includes data preparation, model building (logistic regression, decision trees), evaluation, and reporting. Features reproducible code, datasets, workflow outputs, and analysis reports.", link: "https://github.com/Sadasiva20/SAS", linktitle: "GitHub link" },
   { id: 4, src: Jpass, title: "JPass", details: "Technologies: Java ",description: "A Password Manager app that allows users to generate secure passwords by defining their length."
   , link: "https://github.com/Sadasiva20/PasswordGenerator", linktitle: "Github link" },
   { id: 5, src: NGame, title: "GuessIt!", details: "Technologies: Java" ,description: 
@@ -40,10 +40,17 @@ export default function Experience() {
   return (
     <div className="flex flex-col min-h-screen bg-primary overflow-hidden">
     <Head>
+      <title>Experience | Siva Sankar Portfolio</title>
       <meta charSet="utf-8" />
-       <meta name = "keyword"  content = "projects, github, work experience" />
-       <meta name="description" content="Experience" />
-       middleware
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta name="description" content="A comprehensive showcase of Siva Sankar's projects, demonstrating both frontend and backend development solutions using various technologies such as React, Node.js, JavaScript, Python, and Java." />
+      <meta name="keywords" content="Projects, Siva Sankar, Frontend, Backend, React, Node.js, JavaScript, Python, Java, GitHub" />
+      <link rel="canonical" href="https://sivasan29.com/experience" />
+      <meta property="og:title" content="Experience | Siva Sankar Portfolio" />
+      <meta property="og:description" content="A comprehensive showcase of Siva Sankar's projects, demonstrating both frontend and backend development solutions." />
+      <meta property="og:image" content="https://sivasan29.com/your-image-path.jpg" />
+      <meta property="og:url" content="https://sivasan29.com/experience" />
+      <meta name="twitter:card" content="summary_large_image" />
     </Head>
      <h1 className="text-3xl md:text-4xl font-bold text-white text-center font-custom2">Experience</h1>
     <main className="flex-grow flex flex-col items-center justify-center px-4 py-8">
