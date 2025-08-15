@@ -7,7 +7,7 @@ import linkedin from '../Icons/linkedin.svg';
 import Jpass from '../Images/Jpass.jpg';
 import NGame from'../Images/NGame.jpg';
 import Oppia from '../Images/oppia.jpg';
-import SAS from '../Images/sas.png'; 
+import SAS from '../Images/SAS.png'; 
 import Image from 'next/image';
 import Head from 'next/head';
 
