@@ -135,7 +135,7 @@ const ContactForm = () => {
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
     
-      <h1 className="text-3xl md:text-4xl text-white font-bold text-center">Contact Me! </h1>
+      <h2 className="text-3xl md:text-4xl text-white font-bold text-center">Contact Me! </h2>
       <main className="grow flex flex-col items-center justify-center px-4 py-8">
         <div className="flex items-center justify-center w-full px-4">
           <div className="flex flex-col gap-6 p-8 bg-contact rounded-lg shadow-lg w-full max-w-2xl">
