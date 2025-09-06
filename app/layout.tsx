@@ -7,7 +7,7 @@ import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export const metadata: Metadata = {
-  title: 'Siva\'s Portfolio',
+  title: 'Home',
   description: 'Welcome to Siva\'s portfolio website showcasing projects, experience, and contact information.',
   keywords: ['portfolio', 'Siva', 'developer', 'projects', 'experience'],
   authors: [{ name: 'Siva' }],
