@@ -107,7 +107,7 @@ portfolio/
 ## 🤝 Connect With Me
 
 - **Portfolio**: [sivasan29.com](https://sivasan29.com/)
-- **LinkedIn**: [linkedin.com/in/ssank31](https://www.linkedin.com/in/ssank31/)
+- **LinkedIn**: [linkedin.com/in/sssankar](https://www.linkedin.com/in/sssankar/)
 - **GitHub**: [github.com/Sadasiva20](https://github.com/Sadasiva20?tab=repositories)
 - **Email**: Available via contact form
 
