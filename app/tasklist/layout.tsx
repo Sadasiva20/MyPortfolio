@@ -6,6 +6,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 export const metadata: Metadata = {
   title: 'TaskList - Siva\'s Portfolio',
   description: 'Check out Siva\'s TaskList project, a tool for managing tasks efficiently.',
+  keywords: ['tasklist', 'tasks', 'productivity', 'Siva', 'portfolio'],
 };
 
 export default function RootLayout({children}: { children: React.ReactNode }) {

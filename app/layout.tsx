@@ -47,8 +47,92 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({children}: { children: React.ReactNode }) {
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://sivasan29.com/#person",
+        "name": "Siva",
+        "alternateName": "Sadasiva",
+        "description": "Full-stack developer and software engineer with expertise in modern web technologies",
+        "url": "https://sivasan29.com",
+        "image": {
+          "@type": "ImageObject",
+          "url": "https://sivasan29.com/Images/pic.jpeg",
+          "width": 400,
+          "height": 400
+        },
+        "sameAs": [
+          "https://github.com/Sadasiva20",
+          "https://www.linkedin.com/in/ssank31"
+        ],
+        "knowsAbout": [
+          "Full-Stack Development",
+          "React",
+          "Next.js",
+          "TypeScript",
+          "Node.js",
+          "Python",
+          "JavaScript",
+          "Web Development",
+          "Software Engineering"
+        ],
+        "hasOccupation": {
+          "@type": "Occupation",
+          "name": "Software Developer",
+          "occupationLocation": {
+            "@type": "Country",
+            "name": "India"
+          }
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://sivasan29.com/#website",
+        "url": "https://sivasan29.com",
+        "name": "Siva's Portfolio",
+        "description": "Modern portfolio website showcasing full-stack development expertise with cutting-edge technologies",
+        "publisher": {
+          "@id": "https://sivasan29.com/#person"
+        },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://sivasan29.com/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://sivasan29.com/#webpage",
+        "url": "https://sivasan29.com",
+        "name": "Siva's Portfolio - Full-Stack Developer",
+        "isPartOf": {
+          "@id": "https://sivasan29.com/#website"
+        },
+        "about": {
+          "@id": "https://sivasan29.com/#person"
+        },
+        "primaryImageOfPage": {
+          "@type": "ImageObject",
+          "url": "https://sivasan29.com/Images/pic.jpeg"
+        },
+        "datePublished": "2024-01-01",
+        "dateModified": "2024-12-01"
+      }
+    ]
+  };
+
   return (
     <html lang="en" className='dark'>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(schemaData),
+          }}
+        />
+      </head>
       <body>
         <SpeedInsights/>
         <Analytics/>
