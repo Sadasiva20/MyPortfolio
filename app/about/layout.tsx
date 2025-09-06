@@ -13,6 +13,9 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 export const metadata: Metadata = {
   title: 'About - Siva\'s Portfolio',
   description: 'Learn more about Siva, including background, skills, and interests.',
+  alternates: {
+    canonical: 'https://sivasan29.com/about',
+  },
 };
 
 export default function RootLayout({children}: { children: React.ReactNode }) {

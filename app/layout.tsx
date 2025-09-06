@@ -11,14 +11,17 @@ export const metadata: Metadata = {
   description: 'Welcome to Siva\'s portfolio website showcasing projects, experience, and contact information.',
   keywords: ['portfolio', 'Siva', 'developer', 'projects', 'experience'],
   authors: [{ name: 'Siva' }],
+  alternates: {
+    canonical: 'https://sivasan29.com',
+  },
   openGraph: {
     title: 'Siva\'s Portfolio',
     description: 'Explore Siva\'s portfolio featuring innovative projects and professional experience.',
-    url: 'https://your-domain.com',
+    url: 'https://sivasan29.com',
     siteName: 'Siva\'s Portfolio',
     images: [
       {
-        url: 'https://your-domain.com/og-image.jpg',
+        url: 'https://sivasan29.com/og-image.jpg',
         width: 1200,
         height: 630,
         alt: 'Siva\'s Portfolio',
@@ -31,7 +34,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Siva\'s Portfolio',
     description: 'Explore Siva\'s portfolio featuring innovative projects and professional experience.',
-    images: ['https://your-domain.com/twitter-image.jpg'],
+    images: ['https://sivasan29.com/twitter-image.jpg'],
   },
   robots: {
     index: true,

@@ -13,6 +13,9 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 export const metadata: Metadata = {
   title: 'Contact - Siva\'s Portfolio',
   description: 'Get in touch with Siva. Find contact information and ways to connect.',
+  alternates: {
+    canonical: 'https://sivasan29.com/contact',
+  },
 };
 
 export default function RootLayout({children}: { children: React.ReactNode }) {
