@@ -1,5 +1,5 @@
 
-import TaskList from '../Components/tasklist';
+import TaskList from '../components/tasklist';
 
 export default function Page() {
     

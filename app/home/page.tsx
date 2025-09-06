@@ -2,7 +2,7 @@
 
 
 
-import Home from '../Components/home';
+import Home from '../components/home';
 
 
 export default function Page() {

@@ -1,48 +1,43 @@
 
-import {Providers} from "../providers";
 
-import Nav from '../Components/nav';
-import Home from '../Components/home';
-import About from '../Components/about';
-import Scroll from '../Components/scroll';
-import Contact from '../Components/contact';
+import {Providers} from "../providers";
+import Nav from '../components/nav';
+import Home from '../components/home';
+import About from '../components/about';
+import Scroll from '../components/scroll';
+import Contact from '../components/contact';
+import { Metadata } from 'next';
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
+export const metadata: Metadata = {
+  title: 'Experience - Siva\'s Portfolio',
+  description: 'Explore Siva\'s professional experience, projects, and achievements.',
+};
 
 export default function RootLayout({children}: { children: React.ReactNode }) {
   return (
-    <html lang="en" className='dark'>
-      <head>
-      <meta charSet="utf-8" />
-       <meta name="viewport" content="width=device-width, initial-scale=1" />
-       <title>Experience</title>
-       </head>
-      <body>
-        <SpeedInsights/>
-        <Analytics/>
-        <Providers>
-      <div>
-       <Nav/>
-       <Scroll/>
-      <div id="home" className="section">
-      <Home />
-    </div>
-
-    <div id="about" className="section">
-      <About />
-    </div>
-     
-     <div id ="experience" className="section">
-      {children}
-     </div>
-   
-    <div id="contact" className="section">
-      <Contact/>
-    </div>
-    </div>
-        </Providers>
-      </body>
-    </html>
+    <body>
+      <SpeedInsights/>
+      <Analytics/>
+      <Providers>
+        <div>
+          <Nav/>
+          <Scroll/>
+          <div id="home" className="section">
+            <Home />
+          </div>
+          <div id="about" className="section">
+            <About />
+          </div>
+          <div id="experience" className="section">
+            {children}
+          </div>
+          <div id="contact" className="section">
+            <Contact/>
+          </div>
+        </div>
+      </Providers>
+    </body>
   );
 }

@@ -1,10 +1,10 @@
 
 
-import Nav from './Components/nav';
-import Home from './Components/home';
-import About from './Components/about';
-import Experience from './Components/experience';
-import Contact from './Components/contact';
+import Nav from './components/nav';
+import Home from './components/home';
+import About from './components/about';
+import Experience from './components/experience';
+import Contact from './components/contact';
 
 export default function Page() {
 

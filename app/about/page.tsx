@@ -2,7 +2,7 @@
 
 
 
-import About from '../Components/about';
+import About from '../components/about';
 
 
 export default function Page() {

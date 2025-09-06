@@ -1,4 +1,4 @@
-import TaskPulse from '../Components/taskpulse'
+import TaskPulse from '../components/taskpulse'
 
 export default function Page() {
     

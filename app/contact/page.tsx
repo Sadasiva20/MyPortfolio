@@ -1,7 +1,7 @@
 
 
 
-import Contact from '../Components/contact';
+import Contact from '../components/contact';
 
 
 export default function Page() {

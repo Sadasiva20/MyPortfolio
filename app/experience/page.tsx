@@ -4,7 +4,7 @@
 
 
 
-import Experience from '../Components/experience';
+import Experience from '../components/experience';
 
 export default function Page() {
  
