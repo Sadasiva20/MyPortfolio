@@ -17,7 +17,6 @@ A modern, high-performance portfolio website showcasing full-stack development e
 ### 🛠️ **Technical Excellence**
 - **Modern Architecture**: Server-side rendering with Next.js App Router
 - **Performance Optimized**: Vercel Analytics and Speed Insights integration
-- **SEO Optimized**: Complete metadata, Open Graph, and Twitter Cards
 - **Responsive Design**: Mobile-first approach with Tailwind CSS
 - **Type Safety**: Full TypeScript implementation
 - **Security First**: Input sanitization with DOMPurify
