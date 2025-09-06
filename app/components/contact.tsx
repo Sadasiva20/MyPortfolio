@@ -83,18 +83,15 @@ const ContactForm = () => {
     };
 
     try {
-      const response = await fetch("https://api.web3forms.com/submit", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Accept: "application/json",
         },
         body: JSON.stringify({
-          access_key: "52d46f44-65cc-471e-afed-0406e9ba757b", // <-- Replace with your Web3Forms access key
           name: `${sanitizedData.firstname} ${sanitizedData.lastname}`,
           email: sanitizedData.email,
           message: sanitizedData.message,
-          // Add honeypot field for Web3Forms anti-spam
           hidden_field: honeypot,
         }),
       });

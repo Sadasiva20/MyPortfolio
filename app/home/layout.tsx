@@ -10,7 +10,7 @@ import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export const metadata: Metadata = {
-  title: 'Home - Siva\'s Portfolio',
+  title: 'Home',
   description: 'Welcome to the home page of Siva\'s portfolio. Discover who I am and my key highlights.',
   alternates: {
     canonical: 'https://sivasan29.com/home',
