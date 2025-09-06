@@ -4,7 +4,7 @@ A modern, high-performance portfolio website showcasing full-stack development e
 
 ## 🌐 Live Demo
 
-[View Portfolio](https://sivasan29.com/) | [GitHub Repository](https://github.com/Sadasiva20/MyPortfolio_v4)
+[View Portfolio](https://sivasan29.com/) | [GitHub Repository](https://github.com/Sadasiva20/MyPortfolio)
 
 ## ✨ Key Features
 
@@ -54,10 +54,10 @@ A modern, high-performance portfolio website showcasing full-stack development e
 
 ```bash
 # Clone the repository
-git clone https://github.com/Sadasiva20/MyPortfolio_v4.git
+git clone https://github.com/Sadasiva20/MyPortfolio.git
 
 # Navigate to project directory
-cd MyPortfolio_v4
+cd MyPortfolio
 
 # Install dependencies
 npm install
