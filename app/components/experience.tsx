@@ -25,7 +25,7 @@ const cardData = [
    , link: "https://github.com/Sadasiva20/Up-Cancer-Workspace", linktitle: "Github link" },
   { id: 2, src: Oppia, title: "Oppia", details: "Technologies: Python, CSS, HTML, JavaScript", description: "A showcase of my projects, highlighting front-end and back-end development along with relevant documentation."
   ,link: "https://github.com/Sadasiva20/oppia/tree/develop", linktitle: "Github link" },
-  { id: 3,src:  SAS, title: "SAS Titanic Supervised Learning", details: "Technologies: SAS, .sas7bdat, PDF, HTML", description: "A supervised learning project using the Titanic dataset in SAS. Includes data preparation, model building (logistic regression, decision trees), evaluation, and reporting. Features reproducible code, datasets, workflow outputs, and analysis reports.", link: "https://github.com/Sadasiva20/SAS", linktitle: "GitHub link" },
+  { id: 3,src:  SAS, title: "SAS Titanic Supervised Learning", details: "Technologies: SAS, .sas7bdat, PDF, HTML, SAS Viya", description: "A supervised learning project using the Titanic dataset in SAS. Includes data preparation, model building (logistic regression, decision trees), evaluation, and reporting. Features reproducible code, datasets, workflow outputs, and analysis reports.", link: "https://github.com/Sadasiva20/SAS", linktitle: "GitHub link" },
   { id: 4, src: Jpass, title: "JPass", details: "Technologies: Java ",description: "A Password Manager app that allows users to generate secure passwords by defining their length."
   , link: "https://github.com/Sadasiva20/PasswordGenerator", linktitle: "Github link" },
   { id: 5, src: NGame, title: "GuessIt!", details: "Technologies: Java" ,description: 

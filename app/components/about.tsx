@@ -73,7 +73,7 @@ export default function About() {
 
                 <p className="text-base text-white mb-6 font-custom2">
 
-                Currently, I am a Coder at <span className="font-bold">Outlier AI </span>, where I focus on training AI models to enhance accuracy.
+                I have worked as a Coder at <span className="font-bold">Outlier AI </span>, where I focus on training AI models to enhance accuracy.
 
                 </p>
             </section>
