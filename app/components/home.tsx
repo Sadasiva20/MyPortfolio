@@ -3,7 +3,7 @@
 
 import github from '../Icons/github.svg';
 import  linkedin from '../Icons/linkedin.svg';
-import picture from '../Images/Picture3.png'
+import picture from '../Images/Picture3.webp'
 import  Image from 'next/image';
 import type { Metadata } from 'next' 
 import Head from 'next/head';
