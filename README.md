@@ -1,6 +1,6 @@
 # Portfolio
 
-A modern, high-performance portfolio website showcasing full-stack development expertise with cutting-edge technologies. Built with Next.js 15, React 19, and TypeScript for optimal performance and developer experience.
+A modern, high-performance portfolio website showcasing full-stack development expertise with cutting-edge technologies. Built with Next.js 16, React 19, and TypeScript for optimal performance and developer experience.
 
 ## 🌐 Live Demo
 
@@ -30,7 +30,7 @@ A modern, high-performance portfolio website showcasing full-stack development e
 ## 🛠️ Technology Stack
 
 ### **Frontend Framework**
-- **Next.js 15** - React framework with App Router
+- **Next.js 16** - React framework with App Router
 - **React 19** - Latest React with concurrent features
 - **TypeScript** - Type-safe development
 
