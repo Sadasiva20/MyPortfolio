@@ -9,7 +9,7 @@ import Head from 'next/head';
 
 export const metadata: Metadata = {
   title:'About',
-  description: 'Learn more about Siva Sankar, a recent graduate with a master’s degree in Computer Science, a Software Engineer with experience at Up Cancer, and a Coder at Outlier AI. Discover his education, work experience, and hobbies.',
+  description: 'Learn more about Sadasiva Sankar, a recent graduate with a master’s degree in Computer Science, a Software Engineer with experience at Up Cancer, and a Coder at Outlier AI. Discover his education, work experience, and hobbies.',
   keywords: ['Siva Sankar', 'Software Engineer', 'Computer Science', 'Up Cancer', 'Outlier AI', 'Education', 'Work Experience', 'Hobbies']
 }
 
@@ -18,13 +18,13 @@ export default function About() {
     return (
         <div className="flex flex-col min-h-screen bg-primary  ">
         <Head>
-          <title>About | Siva Sankar Portfolio</title>
+          <title>About | Sadasiva Sankar Portfolio</title>
           <meta charSet="utf-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <meta name="description" content="Learn more about Siva Sankar, a recent graduate with a master’s degree in Computer Science, a Software Engineer with experience at Up Cancer, and a Coder at Outlier AI. Discover his education, work experience, and hobbies." />
-          <meta name="keywords" content="Siva Sankar, Software Engineer, Computer Science, Up Cancer, Outlier AI, Education, Work Experience, Hobbies" />
+          <meta name="keywords" content="Sadasiva Sankar, Software Engineer, Computer Science, Up Cancer, Outlier AI, Education, Work Experience, Hobbies" />
           <link rel="canonical" href="https://sivasan29.com/about" />
-          <meta property="og:title" content="About | Siva Sankar Portfolio" />
+          <meta property="og:title" content="About | Sadasiva Sankar Portfolio" />
           <meta property="og:description" content="Learn more about Siva Sankar, a recent graduate with a master’s degree in Computer Science, a Software Engineer with experience at Up Cancer, and a Coder at Outlier AI." />
           <meta property="og:image" content="https://sivasan29.com/your-image-path.jpg" />
           <meta property="og:url" content="https://sivasan29.com/about" />
@@ -89,7 +89,7 @@ export default function About() {
 
         <footer className="bg-primary text-white py-6 text-center">
         <p className="flex justify-center items-center space-x-8 mb-0">
-          <span className="text-sm">&copy; {new Date().getFullYear()} Siva Sankar </span>
+          <span className="text-sm">&copy; {new Date().getFullYear()} Sadasiva Sankar </span>
 
 
           <span className="mx-2">

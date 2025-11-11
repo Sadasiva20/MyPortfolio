@@ -119,13 +119,13 @@ const ContactForm = () => {
   return (
     <div className="flex flex-col min-h-screen bg-primary overflow-hidden">
       <Head>
-        <title>Contact | Siva Sankar Portfolio</title>
+        <title>Contact | Sadasiva Sankar Portfolio</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="description" content="Reach out to Siva Sankar via the contact form. Provide your first name, last name, email, and message to get in touch." />
-        <meta name="keywords" content="Contact, Siva Sankar, Email, Message, Portfolio" />
+        <meta name="keywords" content="Contact, Sadasiva Sankar, Email, Message, Portfolio" />
         <link rel="canonical" href="https://sivasan29.com/contact" />
-        <meta property="og:title" content="Contact | Siva Sankar Portfolio" />
+        <meta property="og:title" content="Contact | Sadasiva Sankar Portfolio" />
         <meta property="og:description" content="Reach out to Siva Sankar via the contact form." />
         <meta property="og:image" content="https://sivasan29.com/your-image-path.jpg" />
         <meta property="og:url" content="https://sivasan29.com/contact" />
@@ -239,7 +239,7 @@ const ContactForm = () => {
       </main>
       <footer className="bg-primary text-white py-6 text-center">
         <p className="flex justify-center items-center space-x-8 mb-0">
-          <span className="text-lg">&copy; {new Date().getFullYear()} Siva Sankar</span>
+          <span className="text-lg">&copy; {new Date().getFullYear()} Sadasiva Sankar</span>
           <span className="mx-2">
             <a href="https://github.com/Sadasiva20?tab=repositories" target="_blank" rel="noopener noreferrer"  className="text-white hover:text-blue-500">
               <Image src={github} alt="GitHub" className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 transition-transform transform hover:scale-125" />

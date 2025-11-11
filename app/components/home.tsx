@@ -13,7 +13,7 @@ import { useRouter } from 'next/navigation'
 
 export const metadata: Metadata = {
   title: 'Home',
-  description: 'Welcome to the portfolio of Siva Sankar, a passionate Software Engineer. Explore my professional journey, projects, and personal interests.',
+  description: 'Welcome to the portfolio of Sadasiva Sankar, a passionate Software Engineer. Explore my professional journey, projects, and personal interests.',
   keywords: ['Introduction', 'Interests', 'Occupation', 'Sadasiva Sankar', 'Software Engineer', 'Projects', 'Portfolio'],
 } 
 
@@ -29,10 +29,10 @@ export default function Home() {
         <div className="flex flex-col min-h-screen bg-primary">
           
         <Head>
-          <title>Home | Siva Sankar Portfolio</title>
+          <title>Home | Sadasiva Sankar Portfolio</title>
           <meta charSet="utf-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <meta name="description" content="Welcome to the portfolio of Siva Sankar, Software Engineer. Explore my projects, experience, and skills in web development and data science." />
+          <meta name="description" content="Welcome to the portfolio of Sadasiva Sankar, Software Engineer. Explore my projects, experience, and skills in web development and data science." />
           <meta name="keywords" content="Siva Sankar, Software Engineer, Portfolio, React, Node.js, Projects, Web Development" />
           <link rel="canonical" href="https://sivasan29.com/home" />
           <meta property="og:title" content="Siva Sankar Portfolio" />
@@ -49,7 +49,7 @@ export default function Home() {
     <div className="flex justify-center items-center ">
     <Image src= {picture} alt="Picture of me." />
    </div>
-    <h3 className="text-lg mt-2 text-center font-bold font-custom2"> Welcome! I’m Siva Sankar, a Software Engineer </h3>
+    <h3 className="text-lg mt-2 text-center font-bold font-custom2"> Welcome! I’m Sadasiva Sankar, a Software Engineer </h3>
         <p className="text-base mb-6 leading-relaxed font-custom2">
         I have a passion for creating dynamic web applications and tackling complex challenges with innovative technology solutions. 
         This portfolio showcases my professional journey, featuring my experience, projects, and personal interests. 
@@ -62,7 +62,7 @@ export default function Home() {
 </main>
 <footer className="bg-primary text-white py-6 text-center">
         <p className="flex justify-center items-center space-x-8 mb-0">
-          <span className="text-sm">&copy; {new Date().getFullYear()} Siva Sankar</span>
+          <span className="text-sm">&copy; {new Date().getFullYear()} Sadasiva Sankar</span>
           
          
           <span className="mx-2">

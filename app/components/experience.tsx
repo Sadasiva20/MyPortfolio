@@ -15,7 +15,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: 'Experience - Siva Sankar',
-  description: 'A comprehensive showcase of Siva Sankar\'s projects, demonstrating both frontend and backend development solutions using various technologies such as React, Node.js, JavaScript, Python, and Java.',
+  description: 'A comprehensive showcase of Sadasiva Sankar\'s projects, demonstrating both frontend and backend development solutions using various technologies such as React, Node.js, JavaScript, Python, and Java.',
   keywords: ['Projects', 'Siva Sankar', 'Frontend', 'Backend', 'React', 'Node.js', 'JavaScript', 'Python', 'Java' , 'GitHub'],
 }
 
@@ -40,11 +40,11 @@ export default function Experience() {
   return (
     <div className="flex flex-col min-h-screen bg-primary overflow-hidden">
     <Head>
-      <title>Experience | Siva Sankar Portfolio</title>
+      <title>Experience | Sadasiva Sankar Portfolio</title>
       <meta charSet="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="description" content="A comprehensive showcase of Siva Sankar's projects, demonstrating both frontend and backend development solutions using various technologies such as React, Node.js, JavaScript, Python, and Java." />
-      <meta name="keywords" content="Projects, Siva Sankar, Frontend, Backend, React, Node.js, JavaScript, Python, Java, GitHub" />
+      <meta name="keywords" content="Projects, Sadasiva Sankar, Frontend, Backend, React, Node.js, JavaScript, Python, Java, GitHub" />
       <link rel="canonical" href="https://sivasan29.com/experience" />
       <meta property="og:title" content="Experience | Siva Sankar Portfolio" />
       <meta property="og:description" content="A comprehensive showcase of Siva Sankar's projects, demonstrating both frontend and backend development solutions." />
@@ -97,7 +97,7 @@ export default function Experience() {
   
     <footer className="bg-primary text-white py-6 text-center">
       <p className="flex justify-center items-center space-x-8 mb-0">
-        <span className="text-lg font-custom2">&copy; {new Date().getFullYear()} Siva Sankar</span>
+        <span className="text-lg font-custom2">&copy; {new Date().getFullYear()} Sadasiva Sankar</span>
     
       <span className="mx-2">
               <a
