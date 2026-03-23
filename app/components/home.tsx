@@ -49,11 +49,10 @@ export default function Home() {
     <div className="flex justify-center items-center ">
     <Image src= {picture} alt="Picture of me." />
    </div>
-    <h3 className="text-lg mt-2 text-center font-bold font-custom2"> Welcome! I’m Sadasiva Sankar, a Software Engineer </h3>
+    <h3 className="text-lg mt-2 text-center font-bold font-custom2"> Hi, I’m Sadasiva Sankar — a Software Engineer building full-stack web applications with React, Node.js, Python, and Java.  </h3>
         <p className="text-base mb-6 leading-relaxed font-custom2">
-        I have a passion for creating dynamic web applications and tackling complex challenges with innovative technology solutions. 
-        This portfolio showcases my professional journey, featuring my experience, projects, and personal interests. 
-        I invite you to explore my work and discover how I can contribute to your business success.
+        I solve real-world problems through scalable, maintainable, and innovative solutions. Explore my portfolio to see projects 
+that showcase technical depth, collaboration, and measurable impact.
         </p>
         <Button className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg text-lg" type="button" onPress={() => router.push('/experience')}>
        View My Projects

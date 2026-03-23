@@ -38,7 +38,9 @@ export default function About() {
             <section className="max-w-2xl mb-8">
                 <h3 className="text-4xl font-bold text-white mb-4 font-custom2">What I’m Looking For</h3>
                 <p className="text-base text-white mb-6 font-custom2">
-                  I am actively seeking opportunities as a Software Engineer, Full Stack Developer, or in specialized Frontend or Backend roles. My core technologies include Java, Python, React, Node.js, and JavaScript, but I am open to a variety of positions where I can contribute and grow. I am especially interested in innovative teams and projects that value collaboration, learning, and impactful problem-solving. If you have a role that matches my skills and interests, I would love to connect and explore how I can add value to your organization.
+                  I am seeking Software Engineering roles — full-stack, frontend, or backend — where I can leverage my experience 
+with React, Node.js, Python, Java, and cloud technologies to build high-quality applications. 
+I thrive in collaborative teams and enjoy projects that combine innovative problem-solving with tangible results.
                 </p>
             </section>
 
