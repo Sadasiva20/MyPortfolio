@@ -25,18 +25,14 @@ const cardData = [
   { id: 2, src: Oppia, title: "Oppia", details: "Technologies: Python, CSS, HTML, JavaScript", description: "A showcase of my projects, highlighting front-end and back-end development along with relevant documentation."
   ,link: "https://github.com/Sadasiva20/oppia/tree/develop", linktitle: "Github link" },
   { id: 3,src:  SAS, title: "SAS Titanic Supervised Learning", details: "Technologies: SAS, .sas7bdat, PDF, HTML, SAS Viya", description: "A supervised learning project using the Titanic dataset in SAS. Includes data preparation, model building (logistic regression, decision trees), evaluation, and reporting. Features reproducible code, datasets, workflow outputs, and analysis reports.", link: "https://github.com/Sadasiva20/SAS", linktitle: "GitHub link" },
-  {
+{
   id: 4,
-  src: NexusHub, // replace with your thumbnail image variable
+  src: NexusHub, // your thumbnail image variable
   title: "NexusHub",
   details: "Technologies: Next.js, React, Tailwind CSS, Node.js, TypeScript, Supabase, Vercel",
   description: "A collaborative schema editor with real-time editing, AI-powered suggestions, versioning, and undo/redo functionality. Designed to help teams manage and visualize schemas efficiently, demonstrating full-stack development and complex problem-solving.",
-  links: [
-    { url: "https://nexushub.vercel.app", title: "Live Demo" },
-    { url: "https://github.com/Sadasiva20/NexusHub", title: "GitHub Repo" },
-    { url: "https://devpost.com/software/nexushub-cugk9r", title: "Devpost Hackathon Page" }
-  ]
-
+  link: "https://nexushub.vercel.app",  // main link (Live Demo)
+  linktitle: "Live Demo"
 }
 ]; 
 
