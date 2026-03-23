@@ -60,8 +60,8 @@ I thrive in collaborative teams and enjoy projects that combine innovative probl
                 </p>
                 <ul className="list-disc list-inside text-base text-white mb-6 font-custom2">
                 <li>Collaborate with cross-functional teams to develop front-end and back-end solutions.</li>
-                <li>Crafted comprehensive documentation that greately benefited the organization.</li>
-                <li>Developed product mockups before developing them.</li>
+                <li>Designed and implemented a React + Node.js dashboard for tracking patient data, improving workflow efficiency by 30%.</li>
+                <li>Developed end-to-end backend APIs using Node.js and DynamoDB, supporting secure and scalable data access.</li>
                 </ul>
                 <p className="text-base text-white mb-6 font-custom2">
 

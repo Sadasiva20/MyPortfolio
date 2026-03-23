@@ -31,8 +31,8 @@ const cardData = [
   title: "NexusHub",
   details: "Technologies: Next.js, React, Tailwind CSS, Node.js, TypeScript, Supabase, Vercel",
   description: "A collaborative schema editor with real-time editing, AI-powered suggestions, versioning, and undo/redo functionality. Designed to help teams manage and visualize schemas efficiently, demonstrating full-stack development and complex problem-solving.",
-  link: "https://nexushub.vercel.app",  // main link (Live Demo)
-  linktitle: "Live Demo"
+  link: "https://github.com/Sadasiva20/NexusHub",  
+  linktitle: "GitHub link"
 }
 ]; 
 
