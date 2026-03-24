@@ -55,7 +55,7 @@ export default function Experience() {
       <meta property="og:url" content="https://sivasan29.com/experience" />
       <meta name="twitter:card" content="summary_large_image" />
     </Head>
-     <h1 className="text-3xl md:text-4xl font-bold text-white text-center font-custom2">Experience</h1>
+     <h1 className="text-3xl md:text-4xl font-bold text-white text-center font-custom2">Projects</h1>
     <main className="grow flex flex-col items-center justify-center px-4 py-8">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
         {cardData.map(card => (
