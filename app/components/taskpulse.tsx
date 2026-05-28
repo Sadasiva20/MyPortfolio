@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { Card, Button } from "@heroui/react";
 
+/* ---------------- Types ---------------- */
+
 interface CardType {
   id: string;
   title: string;
@@ -14,29 +16,38 @@ interface ColumnType {
   cards: CardType[];
 }
 
+/* ---------------- Data ---------------- */
+
 const initialColumns: ColumnType[] = [
   { id: "todo", name: "To Do", cards: [] },
   { id: "in-progress", name: "In Progress", cards: [] },
   { id: "done", name: "Done", cards: [] },
 ];
 
-export default function KanbanBoard() {
+/* ---------------- Component ---------------- */
+
+export default function TaskPulse() {
   const [kanbanData, setKanbanData] =
     useState<ColumnType[]>(initialColumns);
 
+  /* ---------- Move Card ---------- */
   const moveCard = (cardId: string, targetColumnId: string) => {
     setKanbanData((prev) => {
-      const data = [...prev];
+      const data = prev.map((col) => ({
+        ...col,
+        cards: [...col.cards],
+      }));
+
       let movedCard: CardType | null = null;
 
-      data.forEach((col) => {
+      for (const col of data) {
         const index = col.cards.findIndex((c) => c.id === cardId);
 
         if (index !== -1) {
           movedCard = col.cards[index];
           col.cards.splice(index, 1);
         }
-      });
+      }
 
       const target = data.find((c) => c.id === targetColumnId);
 
@@ -48,36 +59,41 @@ export default function KanbanBoard() {
     });
   };
 
+  /* ---------- Add Card ---------- */
   const addCard = (columnId: string) => {
-    setKanbanData((prev) => {
-      const data = [...prev];
-
-      const column = data.find((c) => c.id === columnId);
-
-      if (column) {
-        column.cards.push({
-          id: Date.now().toString(),
-          title: "New Task",
-        });
-      }
-
-      return data;
-    });
+    setKanbanData((prev) =>
+      prev.map((col) =>
+        col.id === columnId
+          ? {
+              ...col,
+              cards: [
+                ...col.cards,
+                {
+                  id: Date.now().toString(),
+                  title: "New Task",
+                },
+              ],
+            }
+          : col
+      )
+    );
   };
 
+  /* ---------- Update Card Title ---------- */
   const updateTitle = (cardId: string, value: string) => {
-    setKanbanData((prev) => {
-      const data = [...prev];
-
-      data.forEach((col) => {
-        const card = col.cards.find((c) => c.id === cardId);
-        if (card) card.title = value;
-      });
-
-      return data;
-    });
+    setKanbanData((prev) =>
+      prev.map((col) => ({
+        ...col,
+        cards: col.cards.map((card) =>
+          card.id === cardId
+            ? { ...card, title: value }
+            : card
+        ),
+      }))
+    );
   };
 
+  /* ---------- UI ---------- */
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 to-blue-900 text-white">
       {/* Navbar */}
@@ -90,7 +106,6 @@ export default function KanbanBoard() {
         </div>
       </nav>
 
-      {/* Layout */}
       <div className="flex">
         {/* Sidebar */}
         <aside className="w-64 bg-gray-800 min-h-screen p-4">
@@ -116,21 +131,18 @@ export default function KanbanBoard() {
               <div
                 key={column.id}
                 className="w-80 bg-white text-black rounded-lg p-4"
+                onDragOver={(e) => e.preventDefault()}
+                onDrop={(e) => {
+                  const cardId = e.dataTransfer.getData("cardId");
+                  moveCard(cardId, column.id);
+                }}
               >
                 <h2 className="text-center font-bold mb-4">
                   {column.name}
                 </h2>
 
                 {/* Cards */}
-                <div
-                  onDragOver={(e) => e.preventDefault()}
-                  onDrop={(e) => {
-                    const cardId =
-                      e.dataTransfer.getData("cardId");
-                    moveCard(cardId, column.id);
-                  }}
-                  className="space-y-3"
-                >
+                <div className="space-y-3">
                   {column.cards.map((card) => (
                     <div
                       key={card.id}
@@ -147,10 +159,7 @@ export default function KanbanBoard() {
                           className="w-full bg-transparent outline-none"
                           value={card.title}
                           onChange={(e) =>
-                            updateTitle(
-                              card.id,
-                              e.target.value
-                            )
+                            updateTitle(card.id, e.target.value)
                           }
                         />
                       </Card>
