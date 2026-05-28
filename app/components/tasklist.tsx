@@ -1,204 +1,157 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { Input, Button, Select } from "@heroui/react";
+import { useState } from "react";
+import { Card, Button } from "@heroui/react";
 
 /* ---------------- Types ---------------- */
 
-interface Task {
+interface CardType {
   id: string;
-  text: string;
-  category: string;
-  completed: boolean;
-  createdAt: Date;
+  title: string;
 }
 
-interface FilterOptions {
-  status: "all" | "completed" | "incomplete";
-  category?: string;
+interface ColumnType {
+  id: string;
+  name: string;
+  cards: CardType[];
 }
 
 /* ---------------- Data ---------------- */
 
-const categories = ["Work", "Personal", "Shopping", "Urgent"];
-
-const categoryItems = categories.map((c) => ({
-  label: c,
-  value: c,
-}));
-
-const filterItems = [
-  { label: "All Tasks", value: "all" },
-  { label: "Completed", value: "completed" },
-  { label: "Incomplete", value: "incomplete" },
+const initialColumns: ColumnType[] = [
+  { id: "todo", name: "To Do", cards: [] },
+  { id: "in-progress", name: "In Progress", cards: [] },
+  { id: "done", name: "Done", cards: [] },
 ];
 
 /* ---------------- Component ---------------- */
 
-export default function TaskList() {
-  const [item, setItem] = useState("");
-  const [category, setCategory] = useState("Personal");
+export default function TaskPulse() {
+  const [board, setBoard] = useState<ColumnType[]>(initialColumns);
 
-  const [tasks, setTasks] = useState<Task[]>([]);
+  /* ---------- Move Card ---------- */
+  const moveCard = (cardId: string, targetId: string) => {
+    setBoard((prev) => {
+      const data = structuredClone(prev);
+      let moving: CardType | null = null;
 
-  const [filter, setFilter] = useState<FilterOptions>({
-    status: "all",
-  });
+      for (const col of data) {
+        const index = col.cards.findIndex((c) => c.id === cardId);
+        if (index !== -1) {
+          moving = col.cards.splice(index, 1)[0];
+        }
+      }
 
-  /* ---------- Load ---------- */
-  useEffect(() => {
-    const saved = localStorage.getItem("tasks");
-    if (saved) {
-      const parsed = JSON.parse(saved).map((t: any) => ({
-        ...t,
-        createdAt: new Date(t.createdAt),
-      }));
-      setTasks(parsed);
-    }
-  }, []);
+      const target = data.find((c) => c.id === targetId);
+      if (target && moving) target.cards.push(moving);
 
-  /* ---------- Save ---------- */
-  useEffect(() => {
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-  }, [tasks]);
-
-  /* ---------- Actions ---------- */
-
-  const addTask = () => {
-    if (!item.trim()) return;
-
-    setTasks((prev) => [
-      ...prev,
-      {
-        id: Date.now().toString(),
-        text: item,
-        category,
-        completed: false,
-        createdAt: new Date(),
-      },
-    ]);
-
-    setItem("");
+      return data;
+    });
   };
 
-  const toggleTask = (id: string) => {
-    setTasks((prev) =>
-      prev.map((t) =>
-        t.id === id ? { ...t, completed: !t.completed } : t
-      )
-    );
+  /* ---------- Add Card ---------- */
+  const addCard = (columnId: string) => {
+    setBoard((prev) => {
+      const data = structuredClone(prev);
+
+      const col = data.find((c) => c.id === columnId);
+      if (col) {
+        col.cards.push({
+          id: Date.now().toString(),
+          title: "New Task",
+        });
+      }
+
+      return data;
+    });
   };
 
-  const deleteTask = (id: string) => {
-    setTasks((prev) => prev.filter((t) => t.id !== id));
+  /* ---------- Update Title ---------- */
+  const updateCard = (id: string, value: string) => {
+    setBoard((prev) => {
+      const data = structuredClone(prev);
+
+      for (const col of data) {
+        const card = col.cards.find((c) => c.id === id);
+        if (card) card.title = value;
+      }
+
+      return data;
+    });
   };
 
-  /* ---------- Filtering ---------- */
+  /* ---------- Drag Helpers ---------- */
+  const onDragStart = (e: React.DragEvent, id: string) => {
+    e.dataTransfer.setData("cardId", id);
+  };
 
-  const filtered = tasks.filter((t) => {
-    if (filter.status === "completed") return t.completed;
-    if (filter.status === "incomplete") return !t.completed;
-    if (filter.category && t.category !== filter.category) return false;
-    return true;
-  });
+  const onDrop = (e: React.DragEvent, columnId: string) => {
+    const id = e.dataTransfer.getData("cardId");
+    moveCard(id, columnId);
+  };
 
   /* ---------- UI ---------- */
 
   return (
-    <div className="flex flex-col items-center p-6 max-w-4xl mx-auto bg-white shadow-lg rounded-lg">
-      <h1 className="text-2xl font-bold mb-4">Task List</h1>
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-blue-900 text-white">
 
-      {/* Inputs */}
-      <div className="flex gap-4 w-full mb-4">
-        <Select
-          label="Category"
-          selectedKey={category}
-          onSelectionChange={(key) =>
-            setCategory(String(key))
-          }
-          items={categoryItems}
-        >
-          {(item) => (
-            <Select.Item key={item.value}>
-              {item.label}
-            </Select.Item>
-          )}
-        </Select>
+      {/* Navbar */}
+      <nav className="flex justify-between p-4 bg-gray-800">
+        <h1 className="text-xl font-bold">TaskPulse</h1>
 
-        <Select
-          label="Filter"
-          selectedKey={filter.status}
-          onSelectionChange={(key) =>
-            setFilter((prev) => ({
-              ...prev,
-              status: String(key) as any,
-            }))
-          }
-          items={filterItems}
-        >
-          {(item) => (
-            <Select.Item key={item.value}>
-              {item.label}
-            </Select.Item>
-          )}
-        </Select>
-      </div>
+        <div className="flex gap-2">
+          <Button className="bg-blue-600 text-white">Settings</Button>
+          <Button className="bg-blue-600 text-white">Profile</Button>
+        </div>
+      </nav>
 
-      {/* Add task */}
-      <div className="flex gap-2 w-full mb-4">
-        <Input
-          value={item}
-          onChange={(e) => setItem(e.target.value)}
-          placeholder="Add task..."
-        />
+      {/* Board */}
+      <div className="flex gap-6 p-6 overflow-x-auto">
 
-        <Button
-          onPress={addTask}
-          className="bg-blue-600 text-white"
-        >
-          Add
-        </Button>
-      </div>
+        {board.map((col) => (
+          <div
+            key={col.id}
+            className="w-80 bg-white text-black rounded-lg p-4"
+            onDragOver={(e) => e.preventDefault()}
+            onDrop={(e) => onDrop(e, col.id)}
+          >
+            <h2 className="text-center font-bold mb-4">
+              {col.name}
+            </h2>
 
-      {/* List */}
-      <div className="w-full space-y-2">
-        {filtered.length === 0 ? (
-          <p className="text-gray-400 text-center">
-            No tasks
-          </p>
-        ) : (
-          filtered.map((task) => (
-            <div
-              key={task.id}
-              className="flex justify-between items-center border p-3 rounded"
-            >
-              <div className="flex items-center gap-2">
-                <input
-                  type="checkbox"
-                  checked={task.completed}
-                  onChange={() => toggleTask(task.id)}
-                />
-                <span
-                  className={
-                    task.completed
-                      ? "line-through text-gray-400"
-                      : ""
+            {/* Cards */}
+            <div className="space-y-3">
+              {col.cards.map((card) => (
+                <div
+                  key={card.id}
+                  draggable
+                  onDragStart={(e) =>
+                    onDragStart(e, card.id)
                   }
                 >
-                  {task.text}
-                </span>
-              </div>
-
-              <Button
-                size="sm"
-                className="bg-red-600 text-white"
-                onPress={() => deleteTask(task.id)}
-              >
-                Delete
-              </Button>
+                  <Card className="p-3 bg-blue-100">
+                    <input
+                      className="w-full bg-transparent outline-none"
+                      value={card.title}
+                      onChange={(e) =>
+                        updateCard(card.id, e.target.value)
+                      }
+                    />
+                  </Card>
+                </div>
+              ))}
             </div>
-          ))
-        )}
+
+            {/* Add Button */}
+            <Button
+              className="mt-4 w-full bg-blue-600 text-white"
+              onPress={() => addCard(col.id)}
+            >
+              Add Card
+            </Button>
+          </div>
+        ))}
+
       </div>
     </div>
   );
