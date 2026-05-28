@@ -1,16 +1,14 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-
 import {
   Input,
   Button,
   Listbox,
   ListboxItem,
   Select,
+  SelectItem,
 } from "@heroui/react";
-
-import { SelectItem } from "@heroui/select";
 
 /* ---------------- Types ---------------- */
 
@@ -28,9 +26,7 @@ interface TaskStats {
   total: number;
   completed: number;
   incomplete: number;
-  byCategory: {
-    [key: string]: number;
-  };
+  byCategory: Record<string, number>;
 }
 
 interface FilterOptions {
@@ -42,7 +38,7 @@ interface FilterOptions {
 
 const categories = ["Work", "Personal", "Shopping", "Urgent"];
 
-/* ---------------- Components ---------------- */
+/* ---------------- Select Components ---------------- */
 
 const SelectCategory = ({
   category,
@@ -53,10 +49,11 @@ const SelectCategory = ({
 }) => {
   return (
     <Select
-      selectedKeys={[category]}
-      onSelectionChange={(keys) =>
-        setCategory(Array.from(keys)[0] as string)
-      }
+      selectedKeys={new Set([category])}
+      onSelectionChange={(keys) => {
+        const value = Array.from(keys)[0] as string | undefined;
+        if (value) setCategory(value);
+      }}
       placeholder="Select a category"
       className="w-48"
     >
@@ -76,10 +73,11 @@ const FilterSelect = ({
 }) => {
   return (
     <Select
-      selectedKeys={[filter]}
-      onSelectionChange={(keys) =>
-        setFilter(Array.from(keys)[0] as string)
-      }
+      selectedKeys={new Set([filter])}
+      onSelectionChange={(keys) => {
+        const value = Array.from(keys)[0] as string | undefined;
+        if (value) setFilter(value);
+      }}
       placeholder="Filter tasks"
       className="w-48"
     >
@@ -96,8 +94,8 @@ const FilterSelect = ({
 /* ---------------- Main Component ---------------- */
 
 export default function TaskList() {
-  const [item, setItem] = useState<string>("");
-  const [category, setCategory] = useState<string>("Personal");
+  const [item, setItem] = useState("");
+  const [category, setCategory] = useState("Personal");
 
   const [tasks, setTasks] = useState<Task[]>([]);
 
@@ -105,7 +103,7 @@ export default function TaskList() {
     status: "all",
   });
 
-  /* ---------- Load from localStorage ---------- */
+  /* ---------- Load ---------- */
   useEffect(() => {
     const savedTasks = localStorage.getItem("tasks");
 
@@ -120,7 +118,7 @@ export default function TaskList() {
     }
   }, []);
 
-  /* ---------- Save to localStorage ---------- */
+  /* ---------- Save ---------- */
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
@@ -144,9 +142,7 @@ export default function TaskList() {
   const toggleComplete = (id: string) => {
     setTasks((prev) =>
       prev.map((task) =>
-        task.id === id
-          ? { ...task, completed: !task.completed }
-          : task
+        task.id === id ? { ...task, completed: !task.completed } : task
       )
     );
   };
@@ -159,10 +155,7 @@ export default function TaskList() {
   const filteredTasks = tasks.filter((task) => {
     if (filter.status === "completed") return task.completed;
     if (filter.status === "incomplete") return !task.completed;
-
-    if (filter.category && task.category !== filter.category)
-      return false;
-
+    if (filter.category && task.category !== filter.category) return false;
     return true;
   });
 
@@ -189,20 +182,14 @@ export default function TaskList() {
       </h1>
 
       <div className="flex gap-4 mb-4 w-full">
-        <SelectCategory
-          category={category}
-          setCategory={setCategory}
-        />
+        <SelectCategory category={category} setCategory={setCategory} />
 
         <FilterSelect
           filter={filter.status || "all"}
           setFilter={(value) =>
             setFilter((prev) => ({
               ...prev,
-              status: value as
-                | "all"
-                | "completed"
-                | "incomplete",
+              status: value as "all" | "completed" | "incomplete",
             }))
           }
         />
@@ -218,61 +205,48 @@ export default function TaskList() {
 
       <Button
         onPress={addItem}
-        className="w-full bg-primary text-white py-2 rounded-md hover:bg-primary-dark transition duration-300"
+        className="w-full bg-primary text-white py-2 rounded-md hover:bg-primary-dark transition"
       >
         Add
       </Button>
 
+      {/* Stats */}
       <div className="mt-4 text-sm text-gray-600">
         <div>
-          Total: {stats.total} | Completed: {stats.completed} |
-          Incomplete: {stats.incomplete}
+          Total: {stats.total} | Completed: {stats.completed} | Incomplete:{" "}
+          {stats.incomplete}
         </div>
 
         <div className="mt-2">
           By Category:{" "}
-          {Object.entries(stats.byCategory).map(
-            ([cat, count]) => (
-              <span key={cat} className="mr-4">
-                {cat}: {count}
-              </span>
-            )
-          )}
+          {Object.entries(stats.byCategory).map(([cat, count]) => (
+            <span key={cat} className="mr-4">
+              {cat}: {count}
+            </span>
+          ))}
         </div>
       </div>
 
-      <Listbox
-        aria-label="Item list"
-        className="mt-6 w-full border rounded-md border-gray-300 bg-gray-50"
-      >
+      {/* List */}
+      <Listbox className="mt-6 w-full border rounded-md border-gray-300 bg-gray-50">
         {sortedTasks.length === 0 ? (
-          <ListboxItem
-            key="empty"
-            className="p-4 text-gray-400 bg-gray-50 text-center"
-          >
+          <ListboxItem key="empty" className="p-4 text-gray-400 text-center">
             No items available
           </ListboxItem>
         ) : (
           sortedTasks.map((task) => (
             <ListboxItem
               key={task.id}
-              className="flex justify-between items-center p-4 border-b last:border-b-0 bg-white hover:bg-gray-100 transition duration-300"
+              className="flex justify-between items-center p-4 bg-white hover:bg-gray-100"
             >
               <div className="flex items-center gap-2">
                 <input
                   type="checkbox"
                   checked={task.completed}
-                  onChange={() =>
-                    toggleComplete(task.id)
-                  }
-                  className="h-4 w-4"
+                  onChange={() => toggleComplete(task.id)}
                 />
                 <span
-                  className={`text-gray-700 ${
-                    task.completed
-                      ? "line-through"
-                      : ""
-                  }`}
+                  className={task.completed ? "line-through text-gray-500" : ""}
                 >
                   {task.text}
                 </span>
@@ -282,7 +256,6 @@ export default function TaskList() {
                 onPress={() => deleteTask(task.id)}
                 size="sm"
                 color="danger"
-                className="ml-4 bg-red-500 text-white py-1 px-2 rounded-md hover:bg-red-600 transition duration-300"
               >
                 Delete
               </Button>
