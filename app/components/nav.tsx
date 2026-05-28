@@ -1,66 +1,65 @@
-
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
+import Link from "next/link";
 
-import {Navbar,NavbarMenuToggle, NavbarMenu, NavbarItem, NavbarMenuItem, NavbarContent} from "@heroui/react";
-
-import Link from 'next/link'
+const NavItems = [
+  { label: "Home", href: "/home" },
+  { label: "About", href: "/about" },
+  { label: "Experience", href: "/experience" },
+  { label: "Contact", href: "/contact" },
+];
 
 export default function Nav() {
+  const [isNavOpen, setNavOpen] = useState(false);
 
-  const [isNavOpen, setNavOpen] = React.useState(false);
+  return (
+    <header className="bg-nav text-white shadow-md">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6">
 
-  const NavItems = [
-      { label: "Home", href: "/home" },
-      { label: "About", href: "/about" },
-      { label: "Experience", href: "/experience" },
-      { label: "Contact", href: "/contact" },
-    ];
-
-  const handleLinkClick = () => {
-    setNavOpen(false); 
-  };
-
-    return (
-      
-    <Navbar className = "dark  bg-nav text-white shadow-md"  onMenuOpenChange={setNavOpen} >
-      <NavbarContent>
-        <NavbarMenuToggle
+        <button
+          type="button"
           aria-label={isNavOpen ? "Close menu" : "Open menu"}
-          className="sm:hidden" 
-           onClick={() => setNavOpen(!isNavOpen)} 
-           />
-      </NavbarContent>
+          aria-expanded={isNavOpen}
+          className="inline-flex items-center justify-center rounded-md border border-white/20 bg-white/5 p-2 text-white hover:bg-white/10 sm:hidden"
+          onClick={() => setNavOpen((prev) => !prev)}
+        >
+          <span className="sr-only">Toggle navigation</span>
+          <div className="flex h-5 w-6 flex-col justify-between">
+            <span className={`block h-0.5 w-full bg-white transition ${isNavOpen ? "translate-y-1.5 rotate-45" : ""}`} />
+            <span className={`block h-0.5 w-full bg-white transition ${isNavOpen ? "opacity-0" : ""}`} />
+            <span className={`block h-0.5 w-full bg-white transition ${isNavOpen ? "-translate-y-1.5 -rotate-45" : ""}`} />
+          </div>
+        </button>
 
-      <NavbarContent className="hidden sm:flex gap-4" justify="center" >
-        <NavbarItem>
-           <Link className = " text-lg hover:bg-accent text-white transition duration-75" href="/home"> <strong>Home </strong> </Link>
-        </NavbarItem>
-        <NavbarItem>
-           <Link className = "text-lg hover:bg-accent text-white transition duration-75 " href="/about"> <strong> About </strong> </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link className = "text-lg hover:bg-accent text-white transition duration-75" href="/experience"> <strong>  Experience </strong> </Link>
-        </NavbarItem>
-      <NavbarItem>
-      <Link className = " text-lg hover:bg-accent text-white transition duration-75" href="/contact"> <strong> Contact </strong> </Link>
-   </NavbarItem>
-      </NavbarContent>
-      <NavbarContent justify="end">
-      </NavbarContent>
-      <NavbarMenu className="bg-nav">
-        {NavItems.map((item, index) => (
-          <NavbarMenuItem key={`${item}-${index}`}>
-               <Link className={`text-lg text-white block py-2 hover:bg-accent`} 
-                 href={item.href}
-                 onClick={handleLinkClick}>
-            <strong> {item.label} </strong> 
+        <nav className="hidden items-center gap-4 sm:flex">
+          {NavItems.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="rounded-md px-3 py-2 text-lg font-medium text-white transition hover:bg-white/10"
+            >
+              {item.label}
             </Link>
-          </NavbarMenuItem>
-        ))}
-      </NavbarMenu>
-    </Navbar>
+          ))}
+        </nav>
+      </div>
+
+      {isNavOpen && (
+        <nav className="space-y-2 border-t border-white/10 bg-nav px-4 pb-4 sm:hidden">
+          {NavItems.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="block rounded-md px-3 py-2 text-lg text-white hover:bg-white/10"
+              onClick={() => setNavOpen(false)}
+            >
+              {item.label}
+            </Link>
+          ))}
+        </nav>
+      )}
+    </header>
   );
 }
 

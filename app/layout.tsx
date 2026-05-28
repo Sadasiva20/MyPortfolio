@@ -1,6 +1,5 @@
 
 import "./styles/globals.css";
-import {Providers} from "./providers";
 import { Metadata } from 'next';
 
 import { Analytics } from "@vercel/analytics/react"
@@ -139,9 +138,7 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
       <body>
         <SpeedInsights/>
         <Analytics/>
-        <Providers>
           {children}
-        </Providers>
       </body>
     </html>
   );

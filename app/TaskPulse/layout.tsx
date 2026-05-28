@@ -1,7 +1,6 @@
-import {Providers} from "../providers";
+
 import { Metadata } from 'next';
-import { Analytics } from "@vercel/analytics/react"
-import { SpeedInsights } from "@vercel/speed-insights/next"
+// Analytics and SpeedInsights are provided by the root layout; remove duplicates here
 
 export const metadata: Metadata = {
   title: 'TaskPulse - Siva\'s Portfolio',
@@ -14,12 +13,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({children}: { children: React.ReactNode }) {
   return (
-    <body>
-      <SpeedInsights/>
-      <Analytics/>
-      <Providers>
-        {children}
-      </Providers>
-    </body>
+    <>
+      {children}
+    </>
   );
 }

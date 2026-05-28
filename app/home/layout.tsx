@@ -1,13 +1,12 @@
 
-import {Providers} from "../providers";
+
 import Nav from '../components/nav';
 import About from '../components/about';
 import Experience from '../components/experience';
 import Scroll from '../components/scroll';
 import Contact from '../components/contact';
 import { Metadata } from 'next';
-import { Analytics } from "@vercel/analytics/react"
-import { SpeedInsights } from "@vercel/speed-insights/next"
+// Analytics and SpeedInsights are provided by the root layout; remove duplicates here
 
 export const metadata: Metadata = {
   title: 'Home',
@@ -19,27 +18,23 @@ export const metadata: Metadata = {
 
 export default function RootLayout({children}: { children: React.ReactNode }) {
   return (
-    <body>
-      <SpeedInsights/>
-      <Analytics/>
-      <Providers>
-        <div>
-          <Nav/>
-          <Scroll/>
-          <div id="home" className="section">
-            {children}
-          </div>
-          <div id="about" className="section">
-            <About />
-          </div>
-          <div id="experience" className="section">
-            <Experience/>
-          </div>
-          <div id="contact" className="section">
-            <Contact/>
-          </div>
+    <>
+      <div>
+        <Nav/>
+        <Scroll/>
+        <div id="home" className="section">
+          {children}
         </div>
-      </Providers>
-    </body>
+        <div id="about" className="section">
+          <About />
+        </div>
+        <div id="experience" className="section">
+          <Experience/>
+        </div>
+        <div id="contact" className="section">
+          <Contact/>
+        </div>
+      </div>
+    </>
   );
 }
