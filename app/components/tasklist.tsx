@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Input, Button, Select } from "@heroui/react";
 
 /* ---------------- Types ---------------- */
@@ -15,47 +15,25 @@ interface Task {
 
 interface FilterOptions {
   status: "all" | "completed" | "incomplete";
-  category: string;
+  category?: string;
 }
 
 /* ---------------- Data ---------------- */
 
 const categories = ["Work", "Personal", "Shopping", "Urgent"];
 
-/* ---------------- Select Wrapper (SAFE v3 compatible) ---------------- */
+const categoryItems = categories.map((c) => ({
+  label: c,
+  value: c,
+}));
 
-function SelectField({
-  value,
-  onChange,
-  options,
-  placeholder,
-}: {
-  value: string;
-  onChange: (v: string) => void;
-  options: string[];
-  placeholder: string;
-}) {
-  return (
-    <Select
-      selectedKey={value}
-      onSelectionChange={(key) => {
-        if (typeof key === "string") {
-          onChange(key);
-        }
-      }}
-      placeholder={placeholder}
-      className="w-48"
-    >
-      {options.map((opt) => (
-        <div key={opt} data-key={opt}>
-          {opt}
-        </div>
-      ))}
-    </Select>
-  );
-}
+const filterItems = [
+  { label: "All Tasks", value: "all" },
+  { label: "Completed", value: "completed" },
+  { label: "Incomplete", value: "incomplete" },
+];
 
-/* ---------------- Main Component ---------------- */
+/* ---------------- Component ---------------- */
 
 export default function TaskList() {
   const [item, setItem] = useState("");
@@ -65,13 +43,11 @@ export default function TaskList() {
 
   const [filter, setFilter] = useState<FilterOptions>({
     status: "all",
-    category: "all",
   });
 
   /* ---------- Load ---------- */
   useEffect(() => {
     const saved = localStorage.getItem("tasks");
-
     if (saved) {
       const parsed = JSON.parse(saved).map((t: any) => ({
         ...t,
@@ -87,18 +63,21 @@ export default function TaskList() {
   }, [tasks]);
 
   /* ---------- Actions ---------- */
+
   const addTask = () => {
     if (!item.trim()) return;
 
-    const newTask: Task = {
-      id: Date.now().toString(),
-      text: item,
-      category,
-      completed: false,
-      createdAt: new Date(),
-    };
+    setTasks((prev) => [
+      ...prev,
+      {
+        id: Date.now().toString(),
+        text: item,
+        category,
+        completed: false,
+        createdAt: new Date(),
+      },
+    ]);
 
-    setTasks((prev) => [...prev, newTask]);
     setItem("");
   };
 
@@ -115,70 +94,83 @@ export default function TaskList() {
   };
 
   /* ---------- Filtering ---------- */
+
   const filtered = tasks.filter((t) => {
-    if (filter.status === "completed" && !t.completed) return false;
-    if (filter.status === "incomplete" && t.completed) return false;
-    if (filter.category !== "all" && t.category !== filter.category)
-      return false;
+    if (filter.status === "completed") return t.completed;
+    if (filter.status === "incomplete") return !t.completed;
+    if (filter.category && t.category !== filter.category) return false;
     return true;
   });
 
-  const sorted = [...filtered].sort(
-    (a, b) => b.createdAt.getTime() - a.createdAt.getTime()
-  );
-
   /* ---------- UI ---------- */
+
   return (
-    <div className="flex flex-col items-center p-6 border rounded-lg border-primary bg-white shadow-lg max-w-4xl mx-auto mt-10 w-full">
-      <h1 className="text-2xl font-bold mb-4 text-primary">
-        Task List
-      </h1>
+    <div className="flex flex-col items-center p-6 max-w-4xl mx-auto bg-white shadow-lg rounded-lg">
+      <h1 className="text-2xl font-bold mb-4">Task List</h1>
 
-      {/* Filters */}
-      <div className="flex gap-4 mb-4 w-full">
-        <SelectField
-          value={category}
-          onChange={setCategory}
-          options={categories}
-          placeholder="Category"
-        />
+      {/* Inputs */}
+      <div className="flex gap-4 w-full mb-4">
+        <Select
+          label="Category"
+          selectedKey={category}
+          onSelectionChange={(key) =>
+            setCategory(String(key))
+          }
+          items={categoryItems}
+        >
+          {(item) => (
+            <Select.Item key={item.value}>
+              {item.label}
+            </Select.Item>
+          )}
+        </Select>
 
-        <SelectField
-          value={filter.status}
-          onChange={(v) =>
-            setFilter((p) => ({
-              ...p,
-              status: v as FilterOptions["status"],
+        <Select
+          label="Filter"
+          selectedKey={filter.status}
+          onSelectionChange={(key) =>
+            setFilter((prev) => ({
+              ...prev,
+              status: String(key) as any,
             }))
           }
-          options={["all", "completed", "incomplete"]}
-          placeholder="Status"
-        />
+          items={filterItems}
+        >
+          {(item) => (
+            <Select.Item key={item.value}>
+              {item.label}
+            </Select.Item>
+          )}
+        </Select>
       </div>
 
-      {/* Input */}
-      <Input
-        value={item}
-        onChange={(e) => setItem(e.target.value)}
-        placeholder="Add task"
-        className="w-full mb-4"
-      />
+      {/* Add task */}
+      <div className="flex gap-2 w-full mb-4">
+        <Input
+          value={item}
+          onChange={(e) => setItem(e.target.value)}
+          placeholder="Add task..."
+        />
 
-      <Button onPress={addTask} className="w-full">
-        Add Task
-      </Button>
+        <Button
+          onPress={addTask}
+          className="bg-blue-600 text-white"
+        >
+          Add
+        </Button>
+      </div>
 
       {/* List */}
-      <div className="mt-6 w-full space-y-2">
-        {sorted.length === 0 ? (
-          <p className="text-center text-gray-400">
-            No tasks available
+      <div className="w-full space-y-2">
+        {filtered.length === 0 ? (
+          <p className="text-gray-400 text-center">
+            No tasks
           </p>
         ) : (
-          sorted.map((task) => (
+          filtered.map((task) => (
             <div
               key={task.id}
-              className="flex justify-between items-center p-3 border rounded-md bg-gray-50"
+              className="flex justify-between items-center border p-3 rounded"
             >
               <div className="flex items-center gap-2">
                 <input
@@ -189,7 +181,7 @@ export default function TaskList() {
                 <span
                   className={
                     task.completed
-                      ? "line-through text-gray-500"
+                      ? "line-through text-gray-400"
                       : ""
                   }
                 >
@@ -199,7 +191,7 @@ export default function TaskList() {
 
               <Button
                 size="sm"
-                color="danger"
+                className="bg-red-600 text-white"
                 onPress={() => deleteTask(task.id)}
               >
                 Delete
