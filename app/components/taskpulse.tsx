@@ -1,14 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import {
-  Card,
-  CardBody,
-  Button,
-  Input,
-} from "@heroui/react";
-
-/* ---------------- Types ---------------- */
+import { Card, Button } from "@heroui/react";
 
 interface CardType {
   id: string;
@@ -21,266 +14,159 @@ interface ColumnType {
   cards: CardType[];
 }
 
-/* ---------------- Initial Data ---------------- */
-
 const initialColumns: ColumnType[] = [
   { id: "todo", name: "To Do", cards: [] },
   { id: "in-progress", name: "In Progress", cards: [] },
   { id: "done", name: "Done", cards: [] },
 ];
 
-/* ---------------- Component ---------------- */
-
 export default function KanbanBoard() {
   const [kanbanData, setKanbanData] =
     useState<ColumnType[]>(initialColumns);
 
-  /* ---------------- Move Card ---------------- */
-
-  const moveCard = (
-    cardId: string,
-    targetColumnId: string
-  ) => {
+  const moveCard = (cardId: string, targetColumnId: string) => {
     setKanbanData((prev) => {
+      const data = [...prev];
       let movedCard: CardType | null = null;
 
-      const updated = prev.map((col) => {
-        const remaining = col.cards.filter((card) => {
-          if (card.id === cardId) {
-            movedCard = card;
-            return false;
-          }
-          return true;
-        });
+      data.forEach((col) => {
+        const index = col.cards.findIndex((c) => c.id === cardId);
 
-        return { ...col, cards: remaining };
-      });
-
-      return updated.map((col) => {
-        if (col.id === targetColumnId && movedCard) {
-          return {
-            ...col,
-            cards: [...col.cards, movedCard],
-          };
+        if (index !== -1) {
+          movedCard = col.cards[index];
+          col.cards.splice(index, 1);
         }
-        return col;
       });
+
+      const target = data.find((c) => c.id === targetColumnId);
+
+      if (target && movedCard) {
+        target.cards.push(movedCard);
+      }
+
+      return data;
     });
   };
 
-  /* ---------------- Update Title ---------------- */
-
-  const handleCardTitleChange = (
-    cardId: string,
-    newTitle: string
-  ) => {
-    setKanbanData((prev) =>
-      prev.map((col) => ({
-        ...col,
-        cards: col.cards.map((card) =>
-          card.id === cardId
-            ? { ...card, title: newTitle }
-            : card
-        ),
-      }))
-    );
-  };
-
-  /* ---------------- Add Card ---------------- */
-
   const addCard = (columnId: string) => {
-    const newCard: CardType = {
-      id: Date.now().toString(),
-      title: "New Task",
-    };
+    setKanbanData((prev) => {
+      const data = [...prev];
 
-    setKanbanData((prev) =>
-      prev.map((col) =>
-        col.id === columnId
-          ? {
-              ...col,
-              cards: [...col.cards, newCard],
-            }
-          : col
-      )
-    );
+      const column = data.find((c) => c.id === columnId);
+
+      if (column) {
+        column.cards.push({
+          id: Date.now().toString(),
+          title: "New Task",
+        });
+      }
+
+      return data;
+    });
   };
 
-  /* ---------------- Delete Card ---------------- */
+  const updateTitle = (cardId: string, value: string) => {
+    setKanbanData((prev) => {
+      const data = [...prev];
 
-  const deleteCard = (
-    cardId: string,
-    columnId: string
-  ) => {
-    setKanbanData((prev) =>
-      prev.map((col) =>
-        col.id === columnId
-          ? {
-              ...col,
-              cards: col.cards.filter(
-                (c) => c.id !== cardId
-              ),
-            }
-          : col
-      )
-    );
+      data.forEach((col) => {
+        const card = col.cards.find((c) => c.id === cardId);
+        if (card) card.title = value;
+      });
+
+      return data;
+    });
   };
-
-  /* ---------------- UI ---------------- */
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-blue-900">
-      {/* Top Bar */}
-      <nav className="bg-gray-800 p-4 border-b border-gray-700">
-        <div className="flex justify-between items-center">
-          <h1 className="text-3xl font-bold text-white">
-            TaskPulse
-          </h1>
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-blue-900 text-white">
+      {/* Navbar */}
+      <nav className="bg-gray-800 p-4 flex justify-between">
+        <h1 className="text-2xl font-bold">TaskPulse</h1>
 
-          <div className="flex gap-4">
-            <Button className="bg-blue-600 text-white hover:bg-blue-700">
-              Settings
-            </Button>
-            <Button className="bg-blue-600 text-white hover:bg-blue-700">
-              Profile
-            </Button>
-          </div>
+        <div className="flex gap-3">
+          <Button>Settings</Button>
+          <Button>Profile</Button>
         </div>
       </nav>
 
       {/* Layout */}
       <div className="flex">
         {/* Sidebar */}
-        <aside className="w-64 bg-gray-800 min-h-screen p-4 border-r border-gray-700 text-white">
-          <h2 className="text-xl font-semibold mb-4">
-            Dashboard
-          </h2>
-
-          <ul className="space-y-2 mb-6">
-            <li className="hover:bg-gray-700 p-2 rounded cursor-pointer">
-              Overview
-            </li>
-            <li className="hover:bg-gray-700 p-2 rounded cursor-pointer">
-              Analytics
-            </li>
-            <li className="hover:bg-gray-700 p-2 rounded cursor-pointer">
-              Reports
-            </li>
+        <aside className="w-64 bg-gray-800 min-h-screen p-4">
+          <h2 className="font-bold mb-2">Dashboard</h2>
+          <ul className="space-y-2 text-sm">
+            <li>Overview</li>
+            <li>Analytics</li>
+            <li>Reports</li>
           </ul>
 
-          <h2 className="text-xl font-semibold mb-4">
-            Projects
-          </h2>
-
-          <ul className="space-y-2 mb-6">
-            <li className="hover:bg-gray-700 p-2 rounded cursor-pointer">
-              Active
-            </li>
-            <li className="hover:bg-gray-700 p-2 rounded cursor-pointer">
-              Archived
-            </li>
-            <li className="hover:bg-gray-700 p-2 rounded cursor-pointer">
-              + New Project
-            </li>
-          </ul>
-
-          <h2 className="text-xl font-semibold mb-4">
-            Team
-          </h2>
-
-          <ul className="space-y-2">
-            <li className="hover:bg-gray-700 p-2 rounded cursor-pointer">
-              Members
-            </li>
-            <li className="hover:bg-gray-700 p-2 rounded cursor-pointer">
-              Calendar
-            </li>
-            <li className="hover:bg-gray-700 p-2 rounded cursor-pointer">
-              Messages
-            </li>
+          <h2 className="font-bold mt-6 mb-2">Projects</h2>
+          <ul className="space-y-2 text-sm">
+            <li>Active</li>
+            <li>Archived</li>
+            <li>+ New</li>
           </ul>
         </aside>
 
         {/* Board */}
         <main className="flex-1 p-8">
-          <div className="border-2 border-blue-800 rounded-xl p-6 bg-white/5 backdrop-blur-sm">
-            <h1 className="text-3xl font-bold text-center text-white mb-8">
-              TaskPulse
-            </h1>
+          <div className="flex gap-6 overflow-x-auto">
+            {kanbanData.map((column) => (
+              <div
+                key={column.id}
+                className="w-80 bg-white text-black rounded-lg p-4"
+              >
+                <h2 className="text-center font-bold mb-4">
+                  {column.name}
+                </h2>
 
-            <div className="flex gap-6 overflow-x-auto">
-              {kanbanData.map((column) => (
+                {/* Cards */}
                 <div
-                  key={column.id}
-                  className="min-w-[320px] bg-white rounded-xl p-4 shadow-lg"
-                  onDragOver={(e) =>
-                    e.preventDefault()
-                  }
+                  onDragOver={(e) => e.preventDefault()}
                   onDrop={(e) => {
                     const cardId =
-                      e.dataTransfer.getData(
-                        "cardId"
-                      );
+                      e.dataTransfer.getData("cardId");
                     moveCard(cardId, column.id);
                   }}
+                  className="space-y-3"
                 >
-                  <h2 className="text-xl font-semibold text-center mb-4">
-                    {column.name}
-                  </h2>
-
-                  <div className="space-y-4">
-                    {column.cards.map((card) => (
-                      <div
-                        key={card.id}
-                        draggable
-                        onDragStart={(e) =>
-                          e.dataTransfer.setData(
-                            "cardId",
-                            card.id
-                          )
-                        }
-                      >
-                        <Card className="bg-blue-100 hover:bg-blue-200">
-                          <CardBody className="space-y-2">
-                            <Input
-                              value={card.title}
-                              onChange={(e) =>
-                                handleCardTitleChange(
-                                  card.id,
-                                  e.target.value
-                                )
-                              }
-                            />
-
-                            <Button
-                              size="sm"
-                              color="danger"
-                              onPress={() =>
-                                deleteCard(
-                                  card.id,
-                                  column.id
-                                )
-                              }
-                            >
-                              Delete
-                            </Button>
-                          </CardBody>
-                        </Card>
-                      </div>
-                    ))}
-
-                    <Button
-                      className="w-full bg-blue-500 text-white"
-                      onPress={() =>
-                        addCard(column.id)
+                  {column.cards.map((card) => (
+                    <div
+                      key={card.id}
+                      draggable
+                      onDragStart={(e) =>
+                        e.dataTransfer.setData(
+                          "cardId",
+                          card.id
+                        )
                       }
                     >
-                      Add Card
-                    </Button>
-                  </div>
+                      <Card className="p-3 bg-blue-100">
+                        <input
+                          className="w-full bg-transparent outline-none"
+                          value={card.title}
+                          onChange={(e) =>
+                            updateTitle(
+                              card.id,
+                              e.target.value
+                            )
+                          }
+                        />
+                      </Card>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
+
+                {/* Add button */}
+                <Button
+                  className="mt-4 w-full"
+                  onPress={() => addCard(column.id)}
+                >
+                  Add Card
+                </Button>
+              </div>
+            ))}
           </div>
         </main>
       </div>

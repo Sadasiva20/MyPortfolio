@@ -82,11 +82,11 @@ const FilterSelect = ({
       className="w-48"
     >
       <SelectItem key="all">All Tasks</SelectItem>
+      <SelectItem key="completed">Completed</SelectItem>
+      <SelectItem key="incomplete">Incomplete</SelectItem>
       {categories.map((cat) => (
         <SelectItem key={cat}>{cat}</SelectItem>
       ))}
-      <SelectItem key="completed">Completed</SelectItem>
-      <SelectItem key="incomplete">Incomplete</SelectItem>
     </Select>
   );
 };
@@ -246,7 +246,9 @@ export default function TaskList() {
                   onChange={() => toggleComplete(task.id)}
                 />
                 <span
-                  className={task.completed ? "line-through text-gray-500" : ""}
+                  className={
+                    task.completed ? "line-through text-gray-500" : ""
+                  }
                 >
                   {task.text}
                 </span>
