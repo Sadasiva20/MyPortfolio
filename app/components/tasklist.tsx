@@ -22,7 +22,7 @@ interface FilterOptions {
 
 const categories = ["Work", "Personal", "Shopping", "Urgent"];
 
-/* ---------------- Select Helper ---------------- */
+/* ---------------- Select Helper (HeroUI v3 FIXED) ---------------- */
 
 function SelectField({
   value,
@@ -37,10 +37,11 @@ function SelectField({
 }) {
   return (
     <Select
-      selectedKeys={value ? new Set([value]) : new Set()}
-      onSelectionChange={(keys) => {
-        const v = Array.from(keys)[0] as string;
-        if (v) onChange(v);
+      selectedKey={value || null}
+      onSelectionChange={(key) => {
+        if (typeof key === "string") {
+          onChange(key);
+        }
       }}
       placeholder={placeholder}
       className="w-48"
@@ -165,7 +166,7 @@ export default function TaskList() {
         Add Task
       </Button>
 
-      {/* Task List (NO Listbox — fixed) */}
+      {/* Task List (NO Listbox — fully fixed) */}
       <div className="mt-6 w-full space-y-2">
         {sorted.length === 0 ? (
           <p className="text-center text-gray-400">
