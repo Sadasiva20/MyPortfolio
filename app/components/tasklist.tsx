@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { Input, Button, Listbox, Select } from "@heroui/react";
+import { Input, Button, Select } from "@heroui/react";
 
 /* ---------------- Types ---------------- */
 
@@ -22,16 +22,16 @@ interface FilterOptions {
 
 const categories = ["Work", "Personal", "Shopping", "Urgent"];
 
-/* ---------------- Helpers ---------------- */
+/* ---------------- Select Helper ---------------- */
 
-function SelectValue({
+function SelectField({
   value,
-  setValue,
+  onChange,
   options,
   placeholder,
 }: {
   value: string;
-  setValue: (v: string) => void;
+  onChange: (v: string) => void;
   options: string[];
   placeholder: string;
 }) {
@@ -40,7 +40,7 @@ function SelectValue({
       selectedKeys={value ? new Set([value]) : new Set()}
       onSelectionChange={(keys) => {
         const v = Array.from(keys)[0] as string;
-        if (v) setValue(v);
+        if (v) onChange(v);
       }}
       placeholder={placeholder}
       className="w-48"
@@ -52,7 +52,7 @@ function SelectValue({
   );
 }
 
-/* ---------------- Main ---------------- */
+/* ---------------- Main Component ---------------- */
 
 export default function TaskList() {
   const [item, setItem] = useState("");
@@ -68,6 +68,7 @@ export default function TaskList() {
   /* ---------- Load ---------- */
   useEffect(() => {
     const saved = localStorage.getItem("tasks");
+
     if (saved) {
       const parsed = JSON.parse(saved).map((t: any) => ({
         ...t,
@@ -132,16 +133,16 @@ export default function TaskList() {
 
       {/* Filters */}
       <div className="flex gap-4 mb-4 w-full">
-        <SelectValue
+        <SelectField
           value={category}
-          setValue={setCategory}
+          onChange={setCategory}
           options={categories}
           placeholder="Category"
         />
 
-        <SelectValue
+        <SelectField
           value={filter.status}
-          setValue={(v) =>
+          onChange={(v) =>
             setFilter((p) => ({
               ...p,
               status: v as FilterOptions["status"],
@@ -164,8 +165,8 @@ export default function TaskList() {
         Add Task
       </Button>
 
-      {/* List */}
-      <div className="mt-6 w-full">
+      {/* Task List (NO Listbox — fixed) */}
+      <div className="mt-6 w-full space-y-2">
         {sorted.length === 0 ? (
           <p className="text-center text-gray-400">
             No tasks available
@@ -174,7 +175,7 @@ export default function TaskList() {
           sorted.map((task) => (
             <div
               key={task.id}
-              className="flex justify-between items-center p-3 border-b"
+              className="flex justify-between items-center p-3 border rounded-md bg-gray-50"
             >
               <div className="flex items-center gap-2">
                 <input
@@ -184,7 +185,9 @@ export default function TaskList() {
                 />
                 <span
                   className={
-                    task.completed ? "line-through text-gray-500" : ""
+                    task.completed
+                      ? "line-through text-gray-500"
+                      : ""
                   }
                 >
                   {task.text}
