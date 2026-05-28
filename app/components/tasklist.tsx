@@ -22,7 +22,7 @@ interface FilterOptions {
 
 const categories = ["Work", "Personal", "Shopping", "Urgent"];
 
-/* ---------------- Select Wrapper (HeroUI v3 correct API) ---------------- */
+/* ---------------- Select Wrapper (SAFE v3 compatible) ---------------- */
 
 function SelectField({
   value,
@@ -37,7 +37,7 @@ function SelectField({
 }) {
   return (
     <Select
-      selectedKey={value || undefined}
+      selectedKey={value}
       onSelectionChange={(key) => {
         if (typeof key === "string") {
           onChange(key);
@@ -45,20 +45,17 @@ function SelectField({
       }}
       placeholder={placeholder}
       className="w-48"
-      /* ✅ v3 uses items instead of children */
-      items={options.map((opt) => ({
-        label: opt,
-        value: opt,
-      }))}
     >
-      {(item: { label: string; value: string }) => (
-        <div>{item.label}</div>
-      )}
+      {options.map((opt) => (
+        <div key={opt} data-key={opt}>
+          {opt}
+        </div>
+      ))}
     </Select>
   );
 }
 
-/* ---------------- Main ---------------- */
+/* ---------------- Main Component ---------------- */
 
 export default function TaskList() {
   const [item, setItem] = useState("");
@@ -171,7 +168,7 @@ export default function TaskList() {
         Add Task
       </Button>
 
-      {/* Task List */}
+      {/* List */}
       <div className="mt-6 w-full space-y-2">
         {sorted.length === 0 ? (
           <p className="text-center text-gray-400">
