@@ -85,7 +85,7 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
           "name": "Software Developer",
           "occupationLocation": {
             "@type": "Country",
-            "name": "India"
+          
           }
         }
       },
