@@ -21,17 +21,16 @@ export const metadata: Metadata = {
 
 
 const cardData = [
-  { id: 1, src: UpCancer, title: "Up Cancer", details: "Technologies: React, node.js , Dynamodb, JavaScript", description: "A comprehensive showcase of my projects, demonstrating both frontend and backend development solutions."
-   , link: "https://github.com/Sadasiva20/Up-Cancer-Workspace", linktitle: "Github link" },
-  { id: 2, src: Oppia, title: "Oppia", details: "Technologies: Python, CSS, HTML, JavaScript", description: "A showcase of my projects, highlighting front-end and back-end development along with relevant documentation."
-  ,link: "https://github.com/Sadasiva20/oppia/tree/develop", linktitle: "Github link" },
-  { id: 3,src:  SAS, title: "SAS Titanic Supervised Learning", details: "Technologies: SAS, .sas7bdat, PDF, HTML, SAS Viya", description: "A supervised learning project using the Titanic dataset in SAS. Includes data preparation, model building (logistic regression, decision trees), evaluation, and reporting. Features reproducible code, datasets, workflow outputs, and analysis reports.", link: "https://github.com/Sadasiva20/SAS", linktitle: "GitHub link" },
+  { id: 1, src: UpCancer, title: "Up Cancer", details: "Technologies: React, Node.js, DynamoDB, JavaScript", description: "Designed interface workflows and built the supporting backend services that helped the team manage users and operational tasks with greater clarity, structure, and control.", outcome: "Connected thoughtful UI design with reliable data-backed workflows to improve day-to-day coordination in a mission-driven environment.", link: "https://github.com/Sadasiva20/Up-Cancer-Workspace", linktitle: "GitHub link" },
+  { id: 2, src: Oppia, title: "Oppia", details: "Technologies: Python, CSS, HTML, JavaScript", description: "Improved the contributor and learner experience for an open-source education platform by delivering accessible interface updates and clearer documentation.", outcome: "Made the product easier to navigate and maintain, helping users and contributors engage with the platform more effectively.", link: "https://github.com/Sadasiva20/oppia/tree/develop", linktitle: "GitHub link" },
+  { id: 3,src:  SAS, title: "SAS Titanic Supervised Learning", details: "Technologies: SAS, .sas7bdat, PDF, HTML, SAS Viya", description: "Created a structured machine-learning workflow for the Titanic dataset that turned raw data into interpretable analysis and clearer reporting.", outcome: "Supported reproducible experimentation and made analytical findings easier to understand and communicate.", link: "https://github.com/Sadasiva20/SAS", linktitle: "GitHub link" },
 {
   id: 4,
-  src: NexusHub, // your thumbnail image variable
+  src: NexusHub,
   title: "NexusHub",
   details: "Technologies: Next.js, React, Tailwind CSS, Node.js, TypeScript, Supabase, Vercel",
-  description: "A collaborative schema editor with real-time editing, AI-powered suggestions, versioning, and undo/redo functionality. Designed to help teams manage and visualize schemas efficiently, demonstrating full-stack development and complex problem-solving.",
+  description: "Engineered a collaborative schema editor that helped teams iterate on complex data models more confidently through real-time collaboration and AI-assisted suggestions.",
+  outcome: "Helped teams work through complex schema decisions faster with a more collaborative and guided experience.",
   link: "https://github.com/Sadasiva20/NexusHub",  
   linktitle: "GitHub link"
 }
@@ -58,6 +57,9 @@ export default function Experience() {
     </Head>
      <h1 className="text-3xl md:text-4xl font-bold text-white text-center font-custom2">Projects</h1>
     <main className="grow flex flex-col items-center justify-center px-4 py-8">
+      <p className="mx-auto mb-8 max-w-3xl text-center text-sm leading-relaxed text-white/80 font-custom2">
+        A selection of projects that reflect my approach to building practical software through thoughtful design, reliable implementation, and clear product thinking.
+      </p>
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
         {cardData.map(card => (
           <Card
@@ -94,6 +96,9 @@ export default function Experience() {
                 <h3 className="text-xl font-bold font-custom2">{card.title}</h3>
                 <p className="text-sm text-white/70">{card.details}</p>
                 <p className="text-sm leading-relaxed text-white/75">{card.description}</p>
+                <p className="border-l border-white/10 pl-3 text-sm leading-relaxed text-white/65 italic">
+                  {card.outcome}
+                </p>
               </div>
             </Card.Content>
 

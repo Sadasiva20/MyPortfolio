@@ -36,54 +36,51 @@ export default function About() {
         <main className="grow flex flex-col items-center justify-center px-4 py-8">
 
             <section className="max-w-2xl mb-8">
-                <h3 className="text-4xl font-bold text-white mb-4 font-custom2">What I’m Looking For</h3>
+                <h3 className="text-4xl font-bold text-white mb-4 font-custom2">Software Engineering Profile</h3>
                 <p className="text-base text-white mb-6 font-custom2">
-                  I am seeking Software Engineering roles — full-stack, frontend, or backend — where I can leverage my experience 
-with React, Node.js, Python, Java, and cloud technologies to build high-quality applications. 
-I thrive in collaborative teams and enjoy projects that combine innovative problem-solving with tangible results.
+                  I’m a software engineer who enjoys building products that are practical, dependable, and easy to evolve. My work spans full-stack applications, REST APIs, cloud-enabled services, and AI-assisted workflows, with a strong focus on turning complex requirements into clear, maintainable solutions.
                 </p>
             </section>
 
 
             <section className="max-w-2xl mb-8">
 
-                <h3 className="text-4xl font-bold text-white mb-4 font-custom2">Education</h3>
+                <h3 className="text-4xl font-bold text-white mb-4 font-custom2">Background</h3>
                 <p className="text-base text-white mb-6 font-custom2">
-                I am currently pursuing my MBA in Business Intelligence and Data Analytics at Fayetteville State University. I graduated from the University of Illinois Springfield with a master’s degree in Computer Science in December 2023. Prior to that, I earned my bachelor’s degree in Information Technology from the University of North Carolina Wilmington in December 2020. Throughout my academic journey, I have built a strong foundation in computer science principles, algorithms, software engineering, and web development. I have also had the opportunity to work on a variety of impactful projects, which further ignited my passion for creating innovative solutions.
+                I hold a Master&apos;s degree in Computer Science from the University of Illinois Springfield and a Bachelor&apos;s degree in Information Technology from the University of North Carolina Wilmington. I am currently pursuing an MBA in Business Intelligence and Data Analytics at Fayetteville State University, which strengthens my ability to connect technical execution with business outcomes.
                 </p>
             </section>
 
             <section className="max-w-2xl mb-8">
                 <h3 className="text-4xl font-bold text-white mb-4 font-custom2">Work Experience</h3>
                 <p className="text-base text-white mb-6 font-custom2">
-                    I&apos;ve spent years of working as a Software Engineer  at <span className="font-bold">Up Cancer</span>, a nonprofit organization. Here I&apos;ve had the opportunity to:
+                    I previously worked as a <span className="font-bold">Software Engineer</span> at <span className="font-bold">Up Cancer</span>, where I built interfaces and backend services that supported workflow and user-management tools.
                 </p>
                 <ul className="list-disc list-inside text-base text-white mb-6 font-custom2">
-                <li>Collaborate with cross-functional teams to develop front-end and back-end solutions.</li>
-                <li>Designed and implemented a React + Node.js dashboard for tracking patient data, improving workflow efficiency by 30%.</li>
-                <li>Developed end-to-end backend APIs using Node.js and DynamoDB, supporting secure and scalable data access.</li>
+                <li>Developed React-based interfaces and Node.js APIs for user-management and operational workflows.</li>
+                <li>Built data-backed services and integrations to support secure, scalable access and coordination.</li>
+                <li>Collaborated with cross-functional teams to ship features that improved visibility and reliability.</li>
                 </ul>
                 <p className="text-base text-white mb-6 font-custom2">
 
-                I volunteered as a Web Application Developer at <span className="font-bold">Oppia</span>, a nonprofit dedicated to making education more accessible, where I contributed to the following:
+                I also contributed to <span className="font-bold">Oppia</span>, a nonprofit focused on accessible education, where I helped improve web experiences and documentation for a global audience.
                 </p>
                 <ul className="list-disc list-inside text-base text-white mb-6 font-custom2">
-                <li>Excelled in producing comprehensive user documentation, significantly enhancing user experience and support.</li>
-                <li>Designed and engineered user-centric applications and websites that not only met but exceeded user expectations.</li>
-                <li>Implemented changes using Python, HTML, JavaScript, and CSS, while utilizing GitHub for version control to ensure collaboration and code integrity.</li>
+                <li>Implemented frontend and documentation improvements that strengthened usability and contributor support.</li>
+                <li>Delivered reliable updates using Python, HTML, JavaScript, and CSS in a collaborative open-source environment.</li>
                 </ul>
 
                 <p className="text-base text-white mb-6 font-custom2">
 
-                I have worked as a Coder at <span className="font-bold">Outlier AI </span>, where I focus on training AI models to enhance accuracy.
+                At <span className="font-bold">Outlier AI</span>, I supported AI training workflows and evaluation practices, gaining hands-on experience with practical machine learning and data quality processes.
 
                 </p>
             </section>
 
             <section className="max-w-2xl mb-8">
-                <h2 className="text-4xl font-bold text-white mb-4 font-custom1">Hobbies</h2>
+                <h2 className="text-4xl font-bold text-white mb-4 font-custom1">How I Approach Work</h2>
                 <p className="text-base text-white mb-6 font-custom2">
-                Outside of coding, I have a passion for fixing computers and playing video games, activities that not only spark my creativity but also enhance my problem-solving abilities. I also enjoy contributing to open-source projects on GitHub and keeping up to date with the latest technology trends. I believe that exploring diverse interests greatly enriches my skill set and perspective in the tech landscape.
+                I’m motivated by work that blends thoughtful problem-solving with strong execution. I enjoy understanding the user or business need, shaping a practical solution, and building it in a way that is durable, maintainable, and useful over time.
                 </p>
             </section>
         </main>
