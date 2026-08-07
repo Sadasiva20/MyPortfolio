@@ -9,7 +9,7 @@ import Head from 'next/head';
 
 export const metadata: Metadata = {
   title:'About',
-  description: 'Learn more about Sadasiva Sankar, a recent graduate with a master’s degree in Computer Science, a Software Engineer with experience at Up Cancer, and a Coder at Outlier AI. Discover his education, work experience, and hobbies.',
+  description: 'Learn more about Sadasiva Sankar’s software engineering background, education, and experience building web applications, APIs, and AI-assisted workflows.',
   keywords: ['Siva Sankar', 'Software Engineer', 'Computer Science', 'Up Cancer', 'Outlier AI', 'Education', 'Work Experience', 'Hobbies']
 }
 
@@ -38,7 +38,7 @@ export default function About() {
             <section className="max-w-2xl mb-8">
                 <h3 className="text-4xl font-bold text-white mb-4 font-custom2">Software Engineering Profile</h3>
                 <p className="text-base text-white mb-6 font-custom2">
-                  I’m a software engineer who enjoys building products that are practical, dependable, and easy to evolve. My work spans full-stack applications, REST APIs, cloud-enabled services, and AI-assisted workflows, with a strong focus on turning complex requirements into clear, maintainable solutions.
+                  I’m a software engineer interested in building systems that are dependable, easy to extend, and straightforward to work with. My work spans full-stack applications, REST APIs, cloud-based services, and AI-assisted workflows, with attention to how code holds up as needs evolve.
                 </p>
             </section>
 
@@ -57,17 +57,17 @@ export default function About() {
                     I previously worked as a <span className="font-bold">Software Engineer</span> at <span className="font-bold">Up Cancer</span>, where I built interfaces and backend services that supported workflow and user-management tools.
                 </p>
                 <ul className="list-disc list-inside text-base text-white mb-6 font-custom2">
-                <li>Developed React-based interfaces and Node.js APIs for user-management and operational workflows.</li>
+                <li>Implemented React-based interfaces and Node.js APIs for user-management and operational workflows.</li>
                 <li>Built data-backed services and integrations to support secure, scalable access and coordination.</li>
-                <li>Collaborated with cross-functional teams to ship features that improved visibility and reliability.</li>
+                <li>Worked with cross-functional teams to ship features that improved workflow clarity and reliability.</li>
                 </ul>
                 <p className="text-base text-white mb-6 font-custom2">
 
                 I also contributed to <span className="font-bold">Oppia</span>, a nonprofit focused on accessible education, where I helped improve web experiences and documentation for a global audience.
                 </p>
                 <ul className="list-disc list-inside text-base text-white mb-6 font-custom2">
-                <li>Implemented frontend and documentation improvements that strengthened usability and contributor support.</li>
-                <li>Delivered reliable updates using Python, HTML, JavaScript, and CSS in a collaborative open-source environment.</li>
+                <li>Implemented frontend and documentation updates that improved usability and contributor support.</li>
+                <li>Delivered updates using Python, HTML, JavaScript, and CSS in a collaborative open-source environment.</li>
                 </ul>
 
                 <p className="text-base text-white mb-6 font-custom2">
@@ -80,7 +80,7 @@ export default function About() {
             <section className="max-w-2xl mb-8">
                 <h2 className="text-4xl font-bold text-white mb-4 font-custom1">How I Approach Work</h2>
                 <p className="text-base text-white mb-6 font-custom2">
-                I’m motivated by work that blends thoughtful problem-solving with strong execution. I enjoy understanding the user or business need, shaping a practical solution, and building it in a way that is durable, maintainable, and useful over time.
+                I’m motivated by work that starts with a clear problem and leads to a careful build. I tend to break problems into manageable pieces, shape solutions around the constraints at hand, and refine them as the work progresses.
                 </p>
             </section>
         </main>

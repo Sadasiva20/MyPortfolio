@@ -15,22 +15,22 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: 'Experience - Siva Sankar',
-  description: 'A comprehensive showcase of Sadasiva Sankar\'s projects, demonstrating both frontend and backend development solutions using various technologies such as React, Node.js, JavaScript, Python, and Java.',
+  description: 'Selected software engineering projects and technical work spanning frontend, backend, data workflows, and AI-assisted implementations.',
   keywords: ['Projects', 'Siva Sankar', 'Frontend', 'Backend', 'React', 'Node.js', 'JavaScript', 'Python', 'Java' , 'GitHub'],
 }
 
 
 const cardData = [
-  { id: 1, src: UpCancer, title: "Up Cancer", details: "Technologies: React, Node.js, DynamoDB, JavaScript", description: "Designed interface workflows and built the supporting backend services that helped the team manage users and operational tasks with greater clarity, structure, and control.", outcome: "Connected thoughtful UI design with reliable data-backed workflows to improve day-to-day coordination in a mission-driven environment.", link: "https://github.com/Sadasiva20/Up-Cancer-Workspace", linktitle: "GitHub link" },
-  { id: 2, src: Oppia, title: "Oppia", details: "Technologies: Python, CSS, HTML, JavaScript", description: "Improved the contributor and learner experience for an open-source education platform by delivering accessible interface updates and clearer documentation.", outcome: "Made the product easier to navigate and maintain, helping users and contributors engage with the platform more effectively.", link: "https://github.com/Sadasiva20/oppia/tree/develop", linktitle: "GitHub link" },
-  { id: 3,src:  SAS, title: "SAS Titanic Supervised Learning", details: "Technologies: SAS, .sas7bdat, PDF, HTML, SAS Viya", description: "Created a structured machine-learning workflow for the Titanic dataset that turned raw data into interpretable analysis and clearer reporting.", outcome: "Supported reproducible experimentation and made analytical findings easier to understand and communicate.", link: "https://github.com/Sadasiva20/SAS", linktitle: "GitHub link" },
+  { id: 1, src: UpCancer, title: "Up Cancer", details: "Technologies: React, Node.js, DynamoDB, JavaScript", description: "Implemented React interfaces and Node.js services for user-management and operational workflows.", outcome: "Supported day-to-day coordination with clearer data flow and more structured interface behavior.", link: "https://github.com/Sadasiva20/Up-Cancer-Workspace", linktitle: "GitHub link" },
+  { id: 2, src: Oppia, title: "Oppia", details: "Technologies: Python, CSS, HTML, JavaScript", description: "Contributed interface and documentation updates for an open-source education platform.", outcome: "Improved usability and made the experience easier to follow for contributors and learners.", link: "https://github.com/Sadasiva20/oppia/tree/develop", linktitle: "GitHub link" },
+  { id: 3,src:  SAS, title: "SAS Titanic Supervised Learning", details: "Technologies: SAS, .sas7bdat, PDF, HTML, SAS Viya", description: "Built a supervised-learning workflow for the Titanic dataset using SAS and supporting reporting assets.", outcome: "Produced a repeatable analysis pipeline and clearer reporting for the results.", link: "https://github.com/Sadasiva20/SAS", linktitle: "GitHub link" },
 {
   id: 4,
   src: NexusHub,
   title: "NexusHub",
   details: "Technologies: Next.js, React, Tailwind CSS, Node.js, TypeScript, Supabase, Vercel",
-  description: "Engineered a collaborative schema editor that helped teams iterate on complex data models more confidently through real-time collaboration and AI-assisted suggestions.",
-  outcome: "Helped teams work through complex schema decisions faster with a more collaborative and guided experience.",
+  description: "Built a collaborative schema editor with real-time interaction and AI-assisted suggestions.",
+  outcome: "Supported iterative schema work with a more guided editing experience.",
   link: "https://github.com/Sadasiva20/NexusHub",  
   linktitle: "GitHub link"
 }
@@ -58,7 +58,7 @@ export default function Experience() {
      <h1 className="text-3xl md:text-4xl font-bold text-white text-center font-custom2">Projects</h1>
     <main className="grow flex flex-col items-center justify-center px-4 py-8">
       <p className="mx-auto mb-8 max-w-3xl text-center text-sm leading-relaxed text-white/80 font-custom2">
-        A selection of projects that reflect my approach to building practical software through thoughtful design, reliable implementation, and clear product thinking.
+        A selection of projects that reflect how I approach building software: through clear scope, careful execution, and attention to the details that matter.
       </p>
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
         {cardData.map(card => (

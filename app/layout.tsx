@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Siva\'s Portfolio',
-    description: 'Explore Siva\'s portfolio featuring innovative projects and professional experience.',
+    description: 'Explore Siva\'s portfolio featuring software engineering projects and professional experience.',
     url: 'https://sivasan29.com',
     siteName: 'Siva\'s Portfolio',
     images: [
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Siva\'s Portfolio',
-    description: 'Explore Siva\'s portfolio featuring innovative projects and professional experience.',
+    description: 'Explore Siva\'s portfolio featuring software engineering projects and professional experience.',
     images: ['https://sivasan29.com/twitter-image.jpg'],
   },
   robots: {

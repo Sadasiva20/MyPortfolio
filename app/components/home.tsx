@@ -13,7 +13,7 @@ import { useRouter } from 'next/navigation'
 
 export const metadata: Metadata = {
   title: 'Home',
-  description: 'Welcome to the portfolio of Sadasiva Sankar, a passionate Software Engineer. Explore my professional journey, projects, and personal interests.',
+  description: 'Welcome to the portfolio of Sadasiva Sankar, a software engineer. Explore selected projects, experience, and technical interests.',
   keywords: ['Introduction', 'Interests', 'Occupation', 'Sadasiva Sankar', 'Software Engineer', 'Projects', 'Portfolio'],
 } 
 
@@ -32,11 +32,11 @@ export default function Home() {
           <title>Home | Sadasiva Sankar Portfolio</title>
           <meta charSet="utf-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <meta name="description" content="Welcome to the portfolio of Sadasiva Sankar, Software Engineer. Explore my projects, experience, and skills in web development and data science." />
+          <meta name="description" content="Welcome to the portfolio of Sadasiva Sankar, a software engineer. Explore selected projects, experience, and technical interests." />
           <meta name="keywords" content="Siva Sankar, Software Engineer, Portfolio, React, Node.js, Projects, Web Development" />
           <link rel="canonical" href="https://sivasan29.com/home" />
           <meta property="og:title" content="Siva Sankar Portfolio" />
-          <meta property="og:description" content="Explore my professional journey, projects, and skills." />
+          <meta property="og:description" content="Software engineering projects and experience across web applications, backend systems, and AI-assisted workflows." />
           <meta property="og:image" content="https://sivasan29.com/your-image-path.jpg" />
           <meta property="og:url" content="https://sivasan29.com/home" />
           <meta name="twitter:card" content="summary_large_image" />
@@ -50,10 +50,10 @@ export default function Home() {
     <Image src= {picture} alt="Picture of me." />
    </div>
     <h3 className="text-xl sm:text-2xl mt-2 text-center font-semibold tracking-wide font-custom2">
-      I build software that connects strong product thinking with reliable engineering and measurable impact.
+      I build software around clear scope, careful execution, and steady iteration.
     </h3>
         <p className="text-base mb-6 leading-relaxed font-custom2 text-white/80 max-w-xl mx-auto">
-        I’m a software engineer focused on full-stack products, backend systems, cloud-enabled services, and AI-assisted workflows. My work turns complex requirements into dependable tools that improve clarity, reduce friction, and help teams move with more confidence.
+        I’m a software engineer working across full-stack applications, backend services, cloud-based systems, and AI-assisted workflows. I focus on turning problems into code that is dependable, readable, and suited to the task.
         </p>
         <Button className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg text-lg" type="button" onPress={() => router.push('/experience')}>
        View Selected Projects

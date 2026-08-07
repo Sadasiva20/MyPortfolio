@@ -10,7 +10,7 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Experience',
-  description: 'Explore Siva\'s professional experience, projects, and achievements.',
+  description: 'Explore Siva\'s software engineering experience, selected projects, and technical work.',
 };
 
 export default function RootLayout({children}: { children: React.ReactNode }) {
