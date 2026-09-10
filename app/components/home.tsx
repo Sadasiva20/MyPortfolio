@@ -53,7 +53,7 @@ export default function Home() {
       I&apos;m a full-stack software engineer specializing in React, Next.js, Node.js, and TypeScript.
     </h3>
         <p className="text-base mb-6 leading-relaxed font-custom2 text-white/80 max-w-xl mx-auto">
-        I build reliable web applications and backend services, and I&apos;m seeking an early-career software engineering role where I can contribute across the product stack.
+        I&apos;m an early-career software engineer focused on building full-stack applications, backend services, and cloud-integrated systems. I combine frontend and backend development with practical experience in APIs, data, and AI-enabled workflows to turn real problems into reliable, maintainable software. I&apos;m looking for a software engineering role where I can contribute across the stack, learn from experienced engineers, and help build products that deliver meaningful value to users.
         </p>
         <Button className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg text-lg" type="button" onPress={() => router.push('/experience')}>
        View Selected Projects
