@@ -53,28 +53,36 @@ export default function About() {
 
             <section className="max-w-2xl mb-8">
                 <h3 className="text-4xl font-bold text-white mb-4 font-custom2">Work Experience</h3>
-                <p className="text-base text-white mb-6 font-custom2">
-                    I previously worked as a <span className="font-bold">Software Engineer</span> at <span className="font-bold">Up Cancer</span>, where I built interfaces and backend services that supported workflow and user-management tools.
-                </p>
-                <ul className="list-disc list-inside text-base text-white mb-6 font-custom2">
-                <li>Implemented React-based interfaces and Node.js APIs for user-management and operational workflows.</li>
-                <li>Built data-backed services and integrations to support secure, scalable access and coordination.</li>
-                <li>Worked with cross-functional teams to ship features that improved workflow clarity and reliability.</li>
-                </ul>
-                <p className="text-base text-white mb-6 font-custom2">
+              <h4 className="text-2xl font-bold text-white mb-2 font-custom2">Software Engineer — Up Cancer</h4>
+              <p className="text-base text-white mb-4 font-custom2">
+                Built and improved full-stack application features spanning React frontends, Node.js backend services, REST APIs, and AWS infrastructure.
+              </p>
+              <ul className="list-disc list-inside text-base text-white mb-8 font-custom2">
+              <li>Developed React interfaces and Node.js REST APIs supporting user-management and operational workflows.</li>
+              <li>Optimized Node.js and AWS REST APIs, improving backend performance by approximately 40%.</li>
+              <li>Built data-backed services and integrations to support reliable access to application and operational data.</li>
+              <li>Collaborated with cross-functional stakeholders to deliver and refine features based on product and workflow requirements.</li>
+              </ul>
 
-                I also contributed to <span className="font-bold">Oppia</span>, a nonprofit focused on accessible education, where I helped improve web experiences and documentation for a global audience.
-                </p>
-                <ul className="list-disc list-inside text-base text-white mb-6 font-custom2">
-                <li>Implemented frontend and documentation updates that improved usability and contributor support.</li>
-                <li>Delivered updates using Python, HTML, JavaScript, and CSS in a collaborative open-source environment.</li>
-                </ul>
+              <h4 className="text-2xl font-bold text-white mb-2 font-custom2">Open Source Contributor — Oppia</h4>
+              <p className="text-base text-white mb-4 font-custom2">
+                Contributed to an open-source education platform focused on improving web experiences and supporting contributors.
+              </p>
+              <ul className="list-disc list-inside text-base text-white mb-8 font-custom2">
+              <li>Implemented frontend improvements using JavaScript, HTML, and CSS to improve usability across the platform.</li>
+              <li>Contributed documentation and contributor-facing improvements that made project workflows easier to understand and maintain.</li>
+              <li>Worked within an existing Python-based codebase and collaborative open-source development workflow.</li>
+              </ul>
 
-                <p className="text-base text-white mb-6 font-custom2">
-
-                At <span className="font-bold">Outlier AI</span>, I supported AI training workflows and evaluation practices, gaining hands-on experience with practical machine learning and data quality processes.
-
-                </p>
+              <h4 className="text-2xl font-bold text-white mb-2 font-custom2">AI Training / Evaluation — Outlier AI</h4>
+              <p className="text-base text-white mb-4 font-custom2">
+                Supported AI training and evaluation workflows focused on improving model quality and data reliability.
+              </p>
+              <ul className="list-disc list-inside text-base text-white font-custom2">
+              <li>Evaluated AI-generated outputs against defined quality and technical criteria to identify errors and inconsistencies.</li>
+              <li>Applied structured evaluation processes to improve data quality and provide useful feedback for AI model development.</li>
+              <li>Developed practical experience with AI evaluation, data quality, and model-performance assessment.</li>
+              </ul>
             </section>
 
             <section className="max-w-2xl mb-8">
