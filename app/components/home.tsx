@@ -50,10 +50,10 @@ export default function Home() {
     <Image src= {picture} alt="Picture of me." />
    </div>
     <h3 className="text-xl sm:text-2xl mt-2 text-center font-semibold tracking-wide font-custom2">
-      I build software around clear scope, careful execution, and steady iteration.
+      I&apos;m a full-stack software engineer specializing in React, Next.js, Node.js, and TypeScript.
     </h3>
         <p className="text-base mb-6 leading-relaxed font-custom2 text-white/80 max-w-xl mx-auto">
-        I’m a software engineer working across full-stack applications, backend services, cloud-based systems, and AI-assisted workflows. I focus on turning problems into code that is dependable, readable, and suited to the task.
+        I build reliable web applications and backend services, and I&apos;m seeking an early-career software engineering role where I can contribute across the product stack.
         </p>
         <Button className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg text-lg" type="button" onPress={() => router.push('/experience')}>
        View Selected Projects
